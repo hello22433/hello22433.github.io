@@ -1,6 +1,6 @@
 ---
 title: 낙관적 락은 락이 아니다
-date: 2026-08-30 16:49:00 +0900
+date: 2026-08-29 16:49:00 +0900
 categories: [Backend, Database]
 tags: [동시성, 락, cas, sql]
 ---
