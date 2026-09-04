@@ -4,5 +4,11 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+백엔드 개발하면서 배운 것들을 기록합니다.
+
+## 만든 것
+
+### [덜 붐비는 칸](/subway/)
+
+출퇴근 시간에 **언제 · 어느 방향 · 몇 번째 칸**이 가장 여유로운지 알려주는 지하철 혼잡도 예측 도구입니다.
+서울 1~9호선의 역 · 방향 · 요일 · 30분 단위 시간대별 예상 재차율을 미리 계산해 두고 조회합니다.
