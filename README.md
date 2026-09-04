@@ -21,6 +21,11 @@ To unlock all features, the following files must be present in your Jekyll site:
 
 This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
 
+## 수익화 설정
+
+이 저장소에는 광고(Google AdSense · 카카오 애드핏), 후원 버튼, 제휴 링크 고지를 붙일 수 있는 준비가 되어 있다.
+설정값을 채우기 전까지는 아무것도 출력되지 않는다. 신청 순서와 설정 방법은 [`docs/MONETIZATION.md`](docs/MONETIZATION.md) 참고.
+
 ## Usage
 
 Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).

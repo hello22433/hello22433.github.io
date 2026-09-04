@@ -19,7 +19,7 @@ title: hello22433 # the main title
 tagline: 백엔드 개발 기록 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  백엔드 개발을 하며 마주친 동시성, 데이터베이스, AI 활용 문제와 그 해결 과정을 기록합니다.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -52,6 +52,7 @@ webmaster_verifications:
   yandex: # fill in your Yandex verification code
   baidu: # fill in your Baidu verification code
   facebook: # fill in your Facebook verification code
+  naver: # 네이버 서치어드바이저 소유확인 코드 (`_includes/metadata-hook.html` 에서 사용)
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -76,6 +77,36 @@ analytics:
 # Page views settings
 pageviews:
   provider: # now only supports 'goatcounter'
+
+# 수익화 설정 (광고 · 후원 · 제휴)
+#
+# 아래 값은 모두 비어 있어도 사이트가 정상 동작한다. 값을 채우기 전까지는
+# 광고 스크립트도, 후원 박스도, ads.txt 도 만들어지지 않는다.
+# 설정 방법과 신청 순서는 `docs/MONETIZATION.md` 참고.
+monetization:
+  adsense:
+    id: # 애드센스 게시자 ID. 예: ca-pub-1234567890123456
+    in_post_slot: # 본문 하단 광고 단위 슬롯 ID. 예: 1234567890 (비우면 자동 광고만 노출)
+  adfit:
+    in_post_unit: # 카카오 애드핏 광고 단위 ID. 예: DAN-xxxxxxxxxxxx
+    width: 320
+    height: 100
+  # ads.txt 에 추가로 넣을 줄 (애드핏 등 다른 광고 네트워크용)
+  # 예: ["kakao.com, DAN-xxxxxxxxxxxx, DIRECT"]
+  ads_txt_extra_lines: []
+  coupang:
+    disclosure: true # 글 앞머리에 `affiliate: true` 가 있으면 하단에 고지 문구를 붙인다
+    notice: # 고지 문구를 바꾸고 싶을 때만 작성
+  support:
+    message: # 후원 박스 제목. 기본값: "이 글이 도움이 되었다면"
+    buymeacoffee: # Buy Me a Coffee 사용자명
+    kofi: # Ko-fi 사용자명
+    github_sponsors: # GitHub Sponsors 사용자명 (예: hello22433)
+    toss: # 토스 송금 링크 전체 URL
+    custom:
+      # - name: 후원하기
+      #   url: https://example.com
+      #   icon: fa-solid fa-hand-holding-heart
 
 # Prefer color scheme setting.
 #

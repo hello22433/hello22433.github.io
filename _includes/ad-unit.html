@@ -1,0 +1,39 @@
+{%- comment -%}
+  본문 광고 유닛.
+
+  사용법: {% include ad-unit.html %}
+  `_config.yml` 의 `monetization` 값이 비어 있으면 아무것도 출력하지 않으며,
+  로컬(개발) 빌드에서도 출력하지 않는다. 즉 설정 전에는 완전히 비활성 상태다.
+{%- endcomment -%}
+
+{%- if jekyll.environment == 'production' -%}
+  {%- assign _adsense = site.monetization.adsense -%}
+  {%- assign _adfit = site.monetization.adfit -%}
+
+  {%- if _adsense.id and _adsense.id != empty and _adsense.in_post_slot and _adsense.in_post_slot != empty -%}
+    <ins
+      class="adsbygoogle d-block my-4"
+      style="display: block"
+      data-ad-client="{{ _adsense.id }}"
+      data-ad-slot="{{ _adsense.in_post_slot }}"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  {%- endif -%}
+
+  {%- if _adfit.in_post_unit and _adfit.in_post_unit != empty -%}
+    <div class="text-center my-4">
+      <ins
+        class="kakao_ad_area"
+        style="display: none"
+        data-ad-unit="{{ _adfit.in_post_unit }}"
+        data-ad-width="{{ _adfit.width | default: 320 }}"
+        data-ad-height="{{ _adfit.height | default: 100 }}"
+      ></ins>
+      <script async src="https://t1.daumcdn.net/kas/static/ba.min.js"></script>
+    </div>
+  {%- endif -%}
+{%- endif -%}

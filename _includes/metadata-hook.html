@@ -1,0 +1,18 @@
+<!-- 사이트 소유 확인 · 광고 스크립트 로더 (Chirpy 의 metadata-hook 확장점) -->
+
+{%- assign _adsense = site.monetization.adsense -%}
+{%- if _adsense.id and _adsense.id != empty -%}
+  <meta name="google-adsense-account" content="{{ _adsense.id }}">
+  {%- if jekyll.environment == 'production' -%}
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ _adsense.id }}"
+      crossorigin="anonymous"
+    ></script>
+  {%- endif -%}
+{%- endif -%}
+
+{%- assign _naver = site.webmaster_verifications.naver -%}
+{%- if _naver and _naver != empty -%}
+  <meta name="naver-site-verification" content="{{ _naver }}">
+{%- endif -%}

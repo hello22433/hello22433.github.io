@@ -1,0 +1,66 @@
+{%- comment -%}
+  후원 링크 + 제휴(쿠팡 파트너스) 고지 박스.
+
+  - `_config.yml` 의 `monetization.support` 에 값이 하나도 없으면 박스를 출력하지 않는다.
+  - 고지 문구는 글 앞머리(front matter)에 `affiliate: true` 가 있는 글에만 붙는다.
+{%- endcomment -%}
+
+{%- assign _support = site.monetization.support -%}
+{%- assign _links = '' | split: '' -%}
+
+{%- if _support.buymeacoffee and _support.buymeacoffee != empty -%}
+  {%- capture _item -%}https://www.buymeacoffee.com/{{ _support.buymeacoffee }}|커피 한 잔|fa-solid fa-mug-hot{%- endcapture -%}
+  {%- assign _one = _item | split: '###' -%}
+  {%- assign _links = _links | concat: _one -%}
+{%- endif -%}
+
+{%- if _support.kofi and _support.kofi != empty -%}
+  {%- capture _item -%}https://ko-fi.com/{{ _support.kofi }}|Ko-fi|fa-solid fa-heart{%- endcapture -%}
+  {%- assign _one = _item | split: '###' -%}
+  {%- assign _links = _links | concat: _one -%}
+{%- endif -%}
+
+{%- if _support.github_sponsors and _support.github_sponsors != empty -%}
+  {%- capture _item -%}https://github.com/sponsors/{{ _support.github_sponsors }}|GitHub Sponsors|fa-brands fa-github{%- endcapture -%}
+  {%- assign _one = _item | split: '###' -%}
+  {%- assign _links = _links | concat: _one -%}
+{%- endif -%}
+
+{%- if _support.toss and _support.toss != empty -%}
+  {%- capture _item -%}{{ _support.toss }}|토스로 후원|fa-solid fa-won-sign{%- endcapture -%}
+  {%- assign _one = _item | split: '###' -%}
+  {%- assign _links = _links | concat: _one -%}
+{%- endif -%}
+
+{%- for _custom in _support.custom -%}
+  {%- if _custom.url and _custom.url != empty -%}
+    {%- capture _item -%}{{ _custom.url }}|{{ _custom.name | default: '후원하기' }}|{{ _custom.icon | default: 'fa-solid fa-hand-holding-heart' }}{%- endcapture -%}
+    {%- assign _one = _item | split: '###' -%}
+  {%- assign _links = _links | concat: _one -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if _links.size > 0 -%}
+  <div class="support-box border rounded p-3 mt-4 mb-2">
+    <p class="mb-2 fw-bold">{{ _support.message | default: '이 글이 도움이 되었다면' }}</p>
+    <div class="d-flex flex-wrap gap-2">
+      {%- for _link in _links -%}
+        {%- assign _parts = _link | split: '|' -%}
+        <a
+          class="btn btn-sm btn-outline-primary no-text-decoration"
+          href="{{ _parts[0] }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          <i class="{{ _parts[2] }} me-1"></i>{{ _parts[1] }}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{%- if page.affiliate and site.monetization.coupang.disclosure -%}
+  <p class="text-muted small mt-3 mb-0">
+    {{ site.monetization.coupang.notice | default: '이 글에는 쿠팡 파트너스 링크가 포함되어 있으며, 이를 통해 일정액의 수수료를 제공받을 수 있습니다.' }}
+  </p>
+{%- endif -%}
