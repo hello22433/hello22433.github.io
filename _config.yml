@@ -216,6 +216,7 @@ compress_html:
     envs: [development]
 
 exclude:
+  - quantdesk
   - "*.gem"
   - "*.gemspec"
   - docs
