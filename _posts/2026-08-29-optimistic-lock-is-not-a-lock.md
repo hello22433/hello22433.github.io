@@ -3,9 +3,8 @@ title: 낙관적 락은 락이 아니다
 date: 2026-08-29 16:49:00 +0900
 categories: [Backend, Database]
 tags: [동시성, 락, cas, sql]
+description: 낙관적 락은 데이터 접근을 막지 않는다. version 컬럼과 상태값 기반 조건부 UPDATE(CAS)로 여러 대의 서버가 같은 배치 작업을 중복 처리하지 않게 만든 과정.
 ---
-
-# 낙관적 락은 락이 아니다
 
 배치로 대기 중인 작업을 처리하는 업무를 하고 있다. 서버 한 대로 운영하다
 여러 대로 늘리는 과정에서, 현재 쓰는 메모리 플래그로는 동시성 제어가
@@ -65,3 +64,6 @@ PROCESSING 상태로 남는데, 일정 시간이 지난 건을 다시 WAIT으로
 
 용어의 관성으로 보인다. 영어권에서도 optimistic lock보다
 optimistic concurrency control이라는 표현을 쓰는 경우가 많다.
+
+읽기와 쓰기 사이에 왜 틈이 생기는지는
+[싱글 스레드인데 왜 값이 사라지나](/posts/single-thread-race-condition/)에 따로 정리했다.

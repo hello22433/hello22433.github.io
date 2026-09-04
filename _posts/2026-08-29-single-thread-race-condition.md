@@ -3,6 +3,7 @@ title: 싱글 스레드인데 왜 값이 사라지나
 date: 2026-08-29 17:41:00 +0900
 categories: [Backend, Database]
 tags: [동시성, race-condition, cas, nodejs]
+description: 싱글 스레드에서도 await 로 제어권이 넘어가는 순간 read-modify-write 사이에 틈이 생긴다. 원자적 UPDATE 와 CAS 로 갱신 손실(lost update)을 막는 방법.
 ---
 
 우리는 보통 싱글스레드에서는 레이스 컨디션이 일어나지 않는다고 생각하기 쉽다.
@@ -50,7 +51,7 @@ UPDATE tasks SET status = 1 WHERE id = 1 AND status = 0
 ## 락으로 해결하기
 
 계산이 복잡해 애플리케이션에서 처리해야 한다면 락이 필요하다.
-전 글에서 다룬 비관적 락과 낙관적 락이 여기서 등장한다.
+[전 글에서 다룬](/posts/optimistic-lock-is-not-a-lock/) 비관적 락과 낙관적 락이 여기서 등장한다.
 
 비관적 락은 이 틈 자체에 끼어들 수 없게 해당 데이터를 틀어막는 메커니즘이고,
 낙관적 락은 동시에 작업할 수 있게끔 열어주되 해당 데이터가 바뀌었다면
