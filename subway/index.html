@@ -93,6 +93,18 @@
       <p id="express-note" class="tip" hidden></p>
     </section>
 
+    <!-- 실시간 도착 -->
+    <section class="card" id="rt-card">
+      <div class="rt-head">
+        <h2>지금 오는 열차</h2>
+        <span id="rt-badge" class="rt-badge">샘플</span>
+        <button id="rt-refresh" class="ghost-btn" type="button">새로고침</button>
+      </div>
+      <p class="sub" id="rt-sub">도착 시각은 실시간, 열차별 혼잡도는 앞차와의 간격을 반영한 추정입니다.</p>
+      <ul id="rt-list" class="rt-list"></ul>
+      <p id="rt-note" class="tip"></p>
+    </section>
+
     <!-- 칸별 -->
     <section class="card">
       <h2>어느 칸이 비어 있나</h2>
@@ -142,6 +154,11 @@
         열차가 아주 혼잡해지면 승객이 고르게 퍼지므로 편차를 줄입니다. 역별 출입구 위치 실측 자료가 있으면 이 부분을 그대로 대체할 수 있습니다.</p>
         <p><b>혼잡도 등급</b> — 80% 이하 여유 / 80~130% 보통 / 130~150% 주의 / 150~170% 혼잡 / 170% 초과 매우 혼잡.
         재차율 100%는 1량에 160명이 탄 상태(좌석 54석 + 입석 106명)입니다.</p>
+        <p><b>지금 오는 열차</b>는 서울시 실시간 도착정보를 Cloudflare Worker 프록시로 중계해서 받습니다.
+        프록시가 설정돼 있지 않으면 시간표상 배차 간격으로 만든 <b>샘플</b>이 표시되고, 화면에도 그렇게 표시됩니다.
+        도착 시각은 실시간이지만 열차별 혼잡도는 대체로 공개되지 않기 때문에,
+        위 예측값을 기준으로 두고 <b>앞차와의 간격</b>으로 열차별 차이를 만듭니다.
+        앞차가 방금 지나갔으면 승강장에 쌓인 사람이 적어 덜 붐비고, 간격이 벌어졌으면 그만큼 더 탑니다.</p>
         <p class="muted">데이터 생성 스크립트: <code>tools/subway/build_data.py</code> · 생성 시각 <span id="gen-at">-</span></p>
       </div>
     </details>
@@ -153,6 +170,8 @@
   <p>지하철 혼잡도 예측 · 추정 모델 기반이며 실제 혼잡도와 다를 수 있습니다.</p>
 </footer>
 
+<script src="config.js"></script>
+<script src="realtime.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

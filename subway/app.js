@@ -28,6 +28,13 @@
 
   var $ = function (id) { return document.getElementById(id); };
 
+  /** 외부 API에서 온 문자열은 그대로 innerHTML 에 넣지 않는다. */
+  function esc(s) {
+    return String(s === null || s === undefined ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
   // ---------------------------------------------------------------- 등급
   var GRADES = [
     { max: 80,       name: '여유',      v: '--g1', desc: '앉거나 편하게 서서 갈 수 있습니다.' },
@@ -265,6 +272,7 @@
     var opt = state.options[state.optIdx];
     if (!opt) return;
     renderDetail(opt);
+    renderRealtime(opt);
     renderTrain(opt);
     renderChart(opt);
     renderDestOptions(opt);
@@ -321,6 +329,157 @@
     } else {
       note.hidden = true;
     }
+  }
+
+  // ---------------------------------------------------------------- 실시간
+  var rt = { key: '', at: 0, data: null, loading: false };
+
+  function isNow() {
+    return state.day === nowDay() && state.slot === nowSlot();
+  }
+
+  /** 운행 시간(05:00~다음날 01:00) 안인지. 밖이면 실시간이 의미가 없다. */
+  function inService() {
+    var d = new Date();
+    var m = d.getHours() * 60 + d.getMinutes();
+    return m >= SLOT_START || m <= 60;
+  }
+
+  function rtContext(opt) {
+    var n = opt.dir.seq.length;
+    var downstream = [];
+    var limit = opt.run.loop ? n - 1 : n - 1 - opt.pos;
+    for (var d = 1; d <= limit; d++) {
+      var p = opt.pos + d;
+      if (p >= n) p -= n;
+      downstream.push(opt.line.stations[opt.dir.seq[p]].n);
+    }
+    return {
+      station: state.station,
+      lineId: opt.lineId,
+      dirLabel: opt.dir.label,
+      loop: Boolean(opt.run.loop),
+      terminus: downstream.length ? downstream[downstream.length - 1] : opt.next,
+      downstream: downstream,
+      expressLine: (opt.line.express || []).length > 0,
+      day: state.day,
+      hour: (SLOT_START + state.slot * SLOT_STEP) / 60,
+      baseCongestion: loadAt(opt, state.day, state.slot)
+    };
+  }
+
+  function renderRealtime(opt, force) {
+    if (!inService()) {
+      $('rt-badge').className = 'rt-badge';
+      $('rt-badge').textContent = '운행 종료';
+      $('rt-list').innerHTML = '<li class="rt-empty">지금은 운행 시간이 아닙니다. 첫차는 05시 30분 무렵입니다.</li>';
+      $('rt-note').textContent = '';
+      return;
+    }
+    if (!isNow()) {
+      // 실시간은 "지금"에만 의미가 있다
+      $('rt-badge').className = 'rt-badge';
+      $('rt-badge').textContent = '현재 시각 아님';
+      $('rt-list').innerHTML = '<li class="rt-empty">' + slotLabel(state.slot) + ' ' + DAY_NAME[state.day] +
+        ' 기준으로 보고 있습니다. 지금 오는 열차를 보려면 <b>지금으로</b>를 누르세요.</li>';
+      $('rt-note').textContent = '';
+      return;
+    }
+
+    var key = rtContext(opt).lineId + '|' + opt.runIdx + '|' + opt.dirIdx + '|' + state.station;
+    var stale = key !== rt.key || (Date.now() - rt.at) > 20000;
+    if ((force || stale) && !rt.loading) {
+      rt.loading = true;
+      var ctx = rtContext(opt);
+      window.SubwayRealtime.arrivals(ctx).then(function (res) {
+        rt.key = key; rt.at = Date.now(); rt.data = res;
+      }).catch(function (e) {
+        rt.key = key; rt.at = Date.now();
+        rt.data = { source: 'sample', trains: [], warning: e.message };
+      }).then(function () {
+        rt.loading = false;
+        paintRealtime(opt);
+      });
+    }
+    if (rt.data && rt.key === key) paintRealtime(opt);
+    else if (!rt.data) $('rt-list').innerHTML = '<li class="rt-empty">불러오는 중…</li>';
+  }
+
+  function etaText(sec) {
+    if (sec <= 0) return '곧 도착';
+    var m = Math.floor(sec / 60), s = sec % 60;
+    if (m === 0) return s + '초';
+    return m + '분 ' + (s < 10 ? '0' : '') + s + '초';
+  }
+
+  /** 순환선은 종착역이 방향을 설명하지 못하므로 방향 이름을 쓴다. */
+  function destLabel(opt, t) {
+    if (t.terminus) return esc(t.terminus) + '행';
+    if (opt.run.loop) return esc(opt.dir.label);
+    return esc(opt.next) + ' 방면';
+  }
+
+  function paintRealtime(opt) {
+    var data = rt.data;
+    if (!data) return;
+    var elapsed = Math.floor((Date.now() - rt.at) / 1000);
+    var live = data.source === 'live';
+
+    var badge = $('rt-badge');
+    badge.className = 'rt-badge' + (live ? ' live' : '');
+    badge.textContent = live ? '실시간' : '샘플';
+
+    var trains = (data.trains || []).map(function (t) {
+      return { t: t, eta: (t.eta || 0) - elapsed };
+    }).filter(function (x) { return x.eta > -30; });
+
+    if (!trains.length) {
+      $('rt-list').innerHTML = '<li class="rt-empty">표시할 열차가 없습니다.</li>';
+    } else {
+      var best = trains.reduce(function (a, b) { return b.t.congestion < a.t.congestion ? b : a; });
+      $('rt-list').innerHTML = trains.map(function (x) {
+        var t = x.t, g = grade(t.congestion);
+        return '<li class="' + (x === best ? 'pick' : '') + '">' +
+          '<span class="rt-eta">' + etaText(x.eta) + (t.eta ? '<small>후 도착</small>' : '') + '</span>' +
+          '<span class="rt-mid"><span class="rt-dest">' + destLabel(opt, t) +
+            (t.express ? '<span class="rt-tag">급행</span>' : '') + '</span>' +
+            '<span class="rt-meta">' + (t.message ? esc(t.message) + ' · ' : '') +
+            '앞차와 ' + (x === trains[0] ? '약 ' : '') + Math.round(t.gap / 60) + '분 간격' +
+            (t.trainNo ? ' · ' + esc(t.trainNo) + '호' : '') + '</span></span>' +
+          '<span class="rt-val"><span class="v" style="color:' + color(t.congestion) + '">' +
+            t.congestion + '%</span><span class="g">' + g.name + '</span></span>' +
+          '</li>';
+      }).join('');
+    }
+
+    // 한 대 보내면 나아지는지
+    var note = [];
+    if (trains.length > 1) {
+      var first = trains[0];
+      var min = trains.reduce(function (a, b) { return b.t.congestion < a.t.congestion ? b : a; });
+      var worstAfter = trains.slice(1).reduce(function (a, b) {
+        return b.t.congestion > a.t.congestion ? b : a;
+      });
+      var gain = first.t.congestion - min.t.congestion;          // 기다려서 얻는 이득
+      var lose = worstAfter.t.congestion - first.t.congestion;   // 기다려서 손해 보는 폭
+      if (gain >= 10) {
+        note.push('<b>' + etaText(min.eta) + ' 뒤 열차가 ' + gain + '%p 여유롭습니다.</b> 한 대 보내는 편이 낫습니다.');
+      } else if (lose >= 10) {
+        note.push('<b>지금 오는 열차가 가장 낫습니다.</b> 뒤 열차는 최대 ' + lose + '%p 더 붐빕니다.');
+      } else {
+        note.push('열차 사이 혼잡도 차이가 크지 않습니다. 먼저 오는 걸 타세요.');
+      }
+    }
+    if (data.warning) note.push('<span class="muted">' + esc(data.warning) + '</span>');
+    if (!live && !data.warning) {
+      note.push('<span class="muted">실시간 프록시가 설정돼 있지 않아 시간표상 배차 간격으로 만든 샘플입니다. ' +
+        '설정 방법은 <code>workers/subway-proxy/README.md</code>에 있습니다.</span>');
+    }
+    if (window.SubwayRealtime.isOverridden()) {
+      note.push('<span class="muted">임시 엔드포인트 사용 중: ' + esc(window.SubwayRealtime.endpoint()) +
+        ' (<code>?api=</code> 를 비우면 해제)</span>');
+    }
+    $('rt-note').innerHTML = note.join('<br>');
   }
 
   function renderTrain(opt) {
@@ -552,6 +711,17 @@
       var b = e.target.closest('button[data-name]');
       if (b) selectStation(b.dataset.name);
     });
+    $('rt-refresh').addEventListener('click', function () {
+      var opt = state.options[state.optIdx];
+      if (opt) renderRealtime(opt, true);
+    });
+
+    // 남은 시간은 5초마다 다시 그리고, 상류 조회는 realtime.js 쪽 주기를 따른다
+    setInterval(function () {
+      if (document.hidden || !state.station) return;
+      var opt = state.options[state.optIdx];
+      if (opt) renderRealtime(opt);
+    }, 5000);
   }
 
   fetchJSON(DATA_DIR + 'index.json').then(function (idx) {

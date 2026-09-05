@@ -1,0 +1,12 @@
+name = "subway-proxy"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# 인증키는 여기 적지 않는다. 아래 명령으로 시크릿에 넣는다.
+#   npx wrangler secret put SEOUL_API_KEY
+#
+# 상류 응답 원본을 보려면(필드명 확인용) 잠깐만 켰다가 끈다.
+#   npx wrangler secret put ALLOW_DEBUG   → true
+
+[observability]
+enabled = true

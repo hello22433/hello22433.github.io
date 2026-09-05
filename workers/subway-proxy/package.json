@@ -1,0 +1,15 @@
+{
+  "name": "subway-proxy",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "서울시 실시간 지하철 도착정보 프록시 (Cloudflare Worker)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
