@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% from "_forms.html" import lead_form, subscribe_form %}
+{% block title %}{{ r.sido }} {{ r.name }} 이주·정착 지원 {{ year }} · 이사갈군{% endblock %}
+{% block desc %}{{ summary }}{% endblock %}
+{% block path %}/region/{{ r.code }}{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"WebPage","name":r.sido ~ " " ~ r.name ~ " 이주·정착 정보","dateModified":as_of,"about":{"@type":"AdministrativeArea","name":r.name,"containedInPlace":r.sido,"geo":{"@type":"GeoCoordinates","latitude":r.lat,"longitude":r.lon}}}|tojson }}</script>
+{% endblock %}
+{% set perks = [('youth','청년 정착'),('housing','주거'),('farm','귀농·귀촌'),('transfer','전입'),('birth','출산')] %}
+{% block main %}
+<article class="wrap region" id="region" data-code="{{ r.code }}">
+  <nav class="crumbs" aria-label="위치"><a href="/">지역 찾기</a><span aria-hidden="true">›</span><span>{{ r.sido }}</span><span aria-hidden="true">›</span><span>{{ r.name }}</span></nav>
+  <div class="rhead">
+    <div>
+      <div class="eyebrow">인구감소 {{ r.cls }}지원지역</div>
+      <h1>{{ r.name }}<small>{{ r.sido }}</small></h1>
+    </div>
+    <div class="rtags">
+      {% if r.basic_income %}<span class="tag bi">농어촌 기본소득 월 {{ r.bi_monthly|won }}</span>{% endif %}
+      <span class="tag {{ 'sp' if r.cls == '특별' else '' }}">{{ r.cls }}지원지역</span>
+      {% if r.ktx_km <= 10 %}<span class="tag ok">KTX역 {{ r.ktx_km }}km</span>{% endif %}
+      {% if r.chg12m > 0 %}<span class="tag ok">1년 인구 증가</span>{% endif %}
+    </div>
+  </div>
+  <p class="summary">{{ summary }}</p>
+
+  <div class="kpis">
+    <div><b>{{ r['pop']|comma }}</b><span>주민등록 인구 (2026.9)</span></div>
+    <div><b class="{{ 'up' if r.chg12m >= 0 else 'dn' }}">{{ r.chg12m|pct(2) }}</b><span>최근 1년 변화</span></div>
+    <div><b>{{ r.young }}%</b><span>20~39세 비율</span></div>
+    <div><b>{{ r.ktx_km }}km</b><span>{{ r.ktx_name }}까지 직선</span></div>
+  </div>
+
+  <div class="actions noprint">
+    <div class="action main">
+      <h3>이 지역 정착 상담 신청</h3>
+      <p>지원 조건, 집 구하기, 살아보기 프로그램을 물어보세요. 동의하면 {{ r.name }}청 담당 부서로 바로 연결됩니다.</p>
+      <button class="btn primary" type="button" data-open="lead-{{ r.code }}" data-event="lead_open" data-code="{{ r.code }}">상담 신청</button>
+    </div>
+    <div class="action">
+      <h3>맞춤 이주 리포트</h3>
+      <p>지원금 신청 순서와 일정, 군청에 물어볼 질문, 다른 후보지와의 비교를 한 장으로 받습니다.</p>
+      <a class="btn" href="/report?regions={{ r.code }}" data-event="report_open" data-code="{{ r.code }}">리포트 미리보기</a>
+    </div>
+    <div class="action">
+      <h3>정책 바뀌면 알림</h3>
+      <p>{{ r.name }}의 지원사업 공고, 기본소득 공모, 인구감소지역 재지정 소식을 메일로 보내 드립니다.</p>
+      <button class="btn" type="button" data-open="sub-{{ r.code }}">알림 받기</button>
+    </div>
+  </div>
+  <div class="box noprint" id="lead-{{ r.code }}" hidden style="margin-top:12px">{{ lead_form(r) }}</div>
+  <div class="box noprint" id="sub-{{ r.code }}" hidden style="margin-top:12px">{{ subscribe_form(r.code) }}</div>
+
+  <div class="rgrid">
+    <section class="box">
+      <h2>사람</h2>
+      {{ spark|safe }}
+      <dl class="kv">
+        <dt>10년 변화 (2015→2025 연말)</dt><dd class="{{ 'up' if r.chg10 >= 0 else 'dn' }}">{{ r.chg10|pct }}</dd>
+        <dt>0~9세 비율</dt><dd>{{ r.kids }}%</dd>
+        <dt>65세 이상 비율</dt><dd>{{ r.old }}%</dd>
+      </dl>
+      <h3>89곳 안에서의 위치</h3>
+      <div class="fbars">
+        <div><span>1년 인구 변화</span><i><s style="width:{{ pc.chg12m }}%"></s></i><span class="num">{{ pc.chg12m }}</span></div>
+        <div><span>청년 비율</span><i><s style="width:{{ pc.young }}%"></s></i><span class="num">{{ pc.young }}</span></div>
+        <div><span>병·의원 밀도</span><i><s style="width:{{ pc.med }}%"></s></i><span class="num">{{ pc.med }}</span></div>
+        <div><span>KTX 접근</span><i><s style="width:{{ pc.ktx }}%"></s></i><span class="num">{{ pc.ktx }}</span></div>
+      </div>
+      <p class="note">백분위(0~100). 100이면 89곳 중 가장 좋음.</p>
+    </section>
+
+    <section class="box">
+      <h2>의료와 교통</h2>
+      <dl class="kv">
+        <dt>종합병원</dt><dd>{{ r.med.gen }}</dd>
+        <dt>병원·요양병원</dt><dd>{{ r.med.hosp }}</dd>
+        <dt>의원</dt><dd>{{ r.med.clinic }}</dd>
+        <dt>소아청소년과 전문의 기관</dt><dd>{{ r.med.ped }}</dd>
+        <dt>산부인과 전문의 기관</dt><dd>{{ r.med.obgyn }}</dd>
+        <dt>보건소·보건지소·진료소</dt><dd>{{ r.med.ph }}</dd>
+        <dt>약국</dt><dd>{{ r.med.pharm }}</dd>
+        <dt>인구 1만 명당 병·의원</dt><dd>{{ r.clinic_per10k }}</dd>
+      </dl>
+      <h3>교통</h3>
+      <dl class="kv">
+        <dt>가까운 KTX역</dt><dd>{{ r.ktx_name }} {{ r.ktx_km }}km</dd>
+        <dt>서울시청까지 직선</dt><dd>{{ r.seoul_km }}km</dd>
+      </dl>
+      <p class="note">{% if r.name == '옹진군' %}거리는 옹진군청(인천 미추홀구 소재) 기준이라 섬 지역과 다릅니다.{% else %}시·군·구청 기준 직선거리입니다. 의료기관은 건강보험심사평가원 2026년 6월 자료.{% endif %}</p>
+    </section>
+  </div>
+
+  <section class="box" style="margin-top:16px">
+    <h2>정착 지원</h2>
+    {% if r.basic_income %}
+    <div class="callout" style="margin-bottom:14px"><b>농어촌 기본소득 시범지역</b> · 월 {{ r.bi_monthly|won }}(지역사랑상품권). {{ r.basic_income }}. 30일 이상 주민등록과 실제 거주가 필요합니다.</div>
+    {% endif %}
+    <ul class="perks">
+    {% for k, label in perks %}
+      {% set it = r.inc[k] %}
+      <li>
+        {% if not it %}
+          <div class="k"><span>{{ label }}</span></div><p class="none">조사된 고정 지원 없음</p>
+        {% elif k == 'birth' %}
+          <div class="k"><span>{{ label }} (지자체분)</span><span class="amt">첫째 {{ (it.get('first')|won) or '–' }} · 셋째 {{ (it.get('third')|won) or '–' }}</span></div>
+          <div class="src">{{ it.year or '' }} <a href="{{ it.url }}" rel="noopener nofollow" target="_blank">출처</a></div>
+        {% else %}
+          <div class="k"><span>{{ label }}</span><span class="amt">{% if it.amount %}최대 {{ it.amount|won }}{% endif %}</span></div>
+          <p>{{ it.desc or '' }}</p>
+          <div class="src">{{ it.year or '' }} <a href="{{ it.url }}" rel="noopener nofollow" target="_blank">출처</a></div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+    {% if second_home != 'no' %}
+    <p class="note">세컨드홈 특례{% if second_home == 'check' %}(이 지역은 적용 범위 확인 필요){% endif %}: 1주택자가 이 지역 주택(공시가격 9억 원 이하)을 더 사도 기존 집의 1세대1주택 혜택이 유지됩니다. 조세특례제한법 제71조의2.</p>
+    {% endif %}
+    <p class="note">금액은 조건이 붙는 최대치이고, 예산 소진·조례 개정으로 바뀔 수 있습니다. 틀린 정보는 <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정정 요청</a>해 주세요.{% if r.inc.homepage %} <a href="{{ r.inc.homepage }}" rel="noopener" target="_blank">{{ r.name }} 누리집</a>{% endif %}</p>
+  </section>
+
+  <section style="margin-top:20px">
+    <h2 style="font-size:18px">가까운 다른 후보지</h2>
+    <div class="related">
+      {% for x in related %}<a class="btn sm" href="/region/{{ x.code }}">{{ x.sido }} {{ x.name }}{% if x.basic_income %} · 기본소득{% endif %}</a>{% endfor %}
+    </div>
+  </section>
+</article>
+{% endblock %}

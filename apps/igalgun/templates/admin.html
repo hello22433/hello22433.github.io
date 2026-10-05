@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}운영 관리 · 이사갈군{% endblock %}
+{% block path %}/admin{% endblock %}
+{% block head %}<meta name="robots" content="noindex">{% endblock %}
+{% block main %}
+<div class="wrap page">
+  <header><div class="eyebrow">운영자 전용</div><h1>운영 관리</h1><p>Vercel 환경변수 ADMIN_TOKEN 값을 입력하세요. 토큰은 이 탭을 닫으면 지워집니다.</p></header>
+  <form class="box form" id="login" style="max-width:520px">
+    <div class="field"><label for="tok">관리자 토큰</label><input id="tok" type="text" autocomplete="off" spellcheck="false"></div>
+    <button class="btn primary" type="submit">불러오기</button>
+    <p class="formmsg" id="adminMsg" role="status" hidden></p>
+  </form>
+  <div id="dash" hidden>
+    <div class="kpis" id="counts"></div>
+    <div class="box" style="margin-top:16px">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+        <h2>내보내기</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn sm" type="button" data-export="leads">상담 신청 CSV</button>
+          <button class="btn sm" type="button" data-export="partners">파트너 문의 CSV</button>
+          <button class="btn sm" type="button" data-export="subscribers">구독자 CSV</button>
+          <button class="btn sm" type="button" data-export="orders">결제 CSV</button>
+        </div>
+      </div>
+      <p class="note">연동 상태: <span id="health"></span></p>
+    </div>
+    <div class="box" style="margin-top:16px">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+        <h2>지역별 관심도</h2>
+        <label class="sr" for="month">월</label><input id="month" type="text" placeholder="YYYY-MM" style="width:110px">
+      </div>
+      <div class="tblwrap" style="margin-top:10px"><table id="statsTbl"></table></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}<script type="module" src="/assets/admin.js"></script>{% endblock %}

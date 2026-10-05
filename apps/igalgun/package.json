@@ -1,0 +1,11 @@
+{
+  "name": "igalgun",
+  "private": true,
+  "type": "module",
+  "description": "이사갈군 — 인구감소지역 89곳 이주 비교 서비스",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build:pages": "python3 scripts/build.py",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
