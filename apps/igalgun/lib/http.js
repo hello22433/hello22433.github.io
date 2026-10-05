@@ -33,16 +33,50 @@ export function clientKey(request) {
   return createHash('sha256').update(`${process.env.IGG_SALT || 'igalgun'}:${day}:${ip}`).digest('hex').slice(0, 16);
 }
 
+// 정적 사이트(GitHub Pages 등)에서 API를 부를 수 있도록 허용할 출처.
+const DEFAULT_ORIGINS = ['https://hello22433.github.io'];
+function allowedOrigin(request) {
+  const origin = request.headers.get('origin');
+  if (!origin) return null;
+  const list = [...DEFAULT_ORIGINS, ...(process.env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean)];
+  return list.includes(origin) ? origin : null;
+}
+
+function withCors(request, res) {
+  const origin = allowedOrigin(request);
+  if (!origin) return res;
+  const headers = new Headers(res.headers);
+  headers.set('Access-Control-Allow-Origin', origin);
+  headers.set('Vary', 'Origin');
+  return new Response(res.body, { status: res.status, headers });
+}
+
+export function preflight(request) {
+  const origin = allowedOrigin(request);
+  if (!origin) return new Response(null, { status: 403 });
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': origin,
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Max-Age': '86400',
+      Vary: 'Origin',
+    },
+  });
+}
+
 export function handle(fn) {
   return async (request) => {
+    let res;
     try {
-      return await fn(request);
+      res = await fn(request);
     } catch (e) {
-      if (e instanceof HttpError) return fail(e.status, e.message);
-      if (e instanceof StoreUnavailable) return fail(503, '지금은 접수할 수 없습니다. 잠시 뒤 다시 시도해 주세요.', { code: 'store_unconfigured' });
-      console.error(e);
-      return fail(500, '처리 중 오류가 났습니다. 잠시 뒤 다시 시도해 주세요.');
+      if (e instanceof HttpError) res = fail(e.status, e.message);
+      else if (e instanceof StoreUnavailable) res = fail(503, '지금은 접수할 수 없습니다. 잠시 뒤 다시 시도해 주세요.', { code: 'store_unconfigured' });
+      else { console.error(e); res = fail(500, '처리 중 오류가 났습니다. 잠시 뒤 다시 시도해 주세요.'); }
     }
+    return withCors(request, res);
   };
 }
 

@@ -2,7 +2,7 @@
 {% from "_forms.html" import subscribe_form %}
 {% block title %}맞춤 이주 리포트 · 이사갈군{% endblock %}
 {% block desc %}후보지 1~3곳의 정착 지원금 합계, 신청 순서와 일정, 군청에 물어볼 질문을 한 장으로 정리한 맞춤 이주 리포트.{% endblock %}
-{% block path %}/report{% endblock %}
+{% block path %}/report/{% endblock %}
 {% block main %}
 <div class="wrap page">
   <header>
@@ -45,7 +45,7 @@
         <div class="plan"><h3>1곳</h3><div class="price">9,900<small>원</small></div></div>
         <div class="plan feat"><h3>2~3곳 비교</h3><div class="price">19,900<small>원</small></div></div>
       </div>
-      <p class="note">결제 후 받은 링크로 언제든 다시 볼 수 있습니다. 환불 기준은 <a href="/terms">이용약관</a>을 따릅니다.</p>
+      <p class="note">결제 후 받은 링크로 언제든 다시 볼 수 있습니다. 환불 기준은 <a href="{{ base }}/terms/">이용약관</a>을 따릅니다.</p>
       <p style="margin-top:10px"><button class="btn sm" type="button" id="sampleBtn">예시 리포트 보기</button></p>
     </aside>
   </div>
@@ -68,4 +68,4 @@
   </div>
 </div>
 {% endblock %}
-{% block scripts %}<script type="module" src="/assets/report.js"></script>{% endblock %}
+{% block scripts %}<script type="module" src="{{ base }}/assets/report.js"></script>{% endblock %}

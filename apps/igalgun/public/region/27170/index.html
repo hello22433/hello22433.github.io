@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>대구 서구 이주·정착 지원 2026 · 이사갈군</title>
 <meta name="description" content="대구 서구의 주민등록 인구는 163,197명(2026년 9월)으로, 최근 1년 +0.41%, 10년간 -20.4% 변했습니다. 가장 가까운 KTX역은 동대구역(직선 6.1km)이고, 인구 1만 명당 병·의원은 8.88곳입니다.">
-<link rel="canonical" href="https://igalgun.vercel.app/region/27170">
+<link rel="canonical" href="https://igalgun.vercel.app/region/27170/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="이사갈군">
 <meta property="og:title" content="대구 서구 이주·정착 지원 2026 · 이사갈군">
 <meta property="og:description" content="대구 서구의 주민등록 인구는 163,197명(2026년 9월)으로, 최근 1년 +0.41%, 10년간 -20.4% 변했습니다. 가장 가까운 KTX역은 동대구역(직선 6.1km)이고, 인구 1만 명당 병·의원은 8.88곳입니다.">
-<meta property="og:url" content="https://igalgun.vercel.app/region/27170">
+<meta property="og:url" content="https://igalgun.vercel.app/region/27170/">
 <meta property="og:image" content="https://igalgun.vercel.app/assets/og.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/app.css">
+<script>window.IGG={base:"",api:"/api"};</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "AdministrativeArea", "containedInPlace": "\ub300\uad6c", "geo": {"@type": "GeoCoordinates", "latitude": 35.8717, "longitude": 128.5592}, "name": "\uc11c\uad6c"}, "dateModified": "2026-10-05", "name": "\ub300\uad6c \uc11c\uad6c \uc774\uc8fc\u00b7\uc815\ucc29 \uc815\ubcf4"}</script>
 </head>
 <body data-page="region">
@@ -29,9 +30,9 @@
     <a class="brand" href="/"><b>이사갈<i>군</i></b><span>인구감소지역 이주 비교</span></a>
     <nav class="mainnav" id="mainnav" aria-label="주요 메뉴">
       <a href="/" >지역 찾기</a>
-      <a href="/report" >맞춤 리포트</a>
-      <a href="/insight" >인사이트</a>
-      <a href="/partners" >지자체 파트너</a>
+      <a href="/report/" >맞춤 리포트</a>
+      <a href="/insight/" >인사이트</a>
+      <a href="/partners/" >지자체 파트너</a>
     </nav>
     <button class="btn searchbtn" type="button" id="openSearch" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="t">지역 이름으로 찾기</span><kbd>/</kbd><span class="sr">지역 검색</span></button>
     <button class="btn ghost menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainnav">메뉴</button>
@@ -63,12 +64,12 @@
     <div class="action main">
       <h3>이 지역 정착 상담 신청</h3>
       <p>지원 조건, 집 구하기, 살아보기 프로그램을 물어보세요. 동의하면 서구청 담당 부서로 바로 연결됩니다.</p>
-      <button class="btn primary" type="button" data-open="lead-27170" data-event="lead_open" data-code="27170">상담 신청</button>
+      <button class="btn primary" type="button" data-open="lead-27170" data-track="lead_open" data-code="27170" data-exp-lead>상담 신청</button>
     </div>
     <div class="action">
       <h3>맞춤 이주 리포트</h3>
       <p>지원금 신청 순서와 일정, 군청에 물어볼 질문, 다른 후보지와의 비교를 한 장으로 받습니다.</p>
-      <a class="btn" href="/report?regions=27170" data-event="report_open" data-code="27170">리포트 미리보기</a>
+      <a class="btn" href="/report/?regions=27170" data-track="report_open" data-code="27170">리포트 미리보기</a>
     </div>
     <div class="action">
       <h3>정책 바뀌면 알림</h3>
@@ -76,7 +77,7 @@
       <button class="btn" type="button" data-open="sub-27170">알림 받기</button>
     </div>
   </div>
-  <div class="box noprint" id="lead-27170" hidden style="margin-top:12px"><form class="form" data-endpoint="/api/lead" data-kind="lead" novalidate>
+  <div class="box noprint" id="lead-27170" hidden style="margin-top:12px"><form class="form" data-endpoint="lead" data-kind="lead" novalidate>
   <input type="hidden" name="regions" value="27170">
   <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
   <div class="row2">
@@ -102,7 +103,7 @@
   <p class="formmsg" role="status" hidden></p>
 </form>
 </div>
-  <div class="box noprint" id="sub-27170" hidden style="margin-top:12px"><form class="form" data-endpoint="/api/subscribe" data-kind="subscribe" novalidate>
+  <div class="box noprint" id="sub-27170" hidden style="margin-top:12px"><form class="form" data-endpoint="subscribe" data-kind="subscribe" novalidate>
   <input type="hidden" name="regions" value="27170">
   <input type="hidden" name="topic" value="policy">
   <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -159,12 +160,12 @@
       <li>
           <div class="k"><span>청년 정착</span><span class="amt">최대 480만 원</span></div>
           <p>청년월세 월20만원×24개월(19~34세 무주택)</p>
-          <div class="src">2026 <a href="https://blog.naver.com/happyseogu/224296587464" rel="noopener nofollow" target="_blank">출처</a></div>
+          <div class="src">2026 <a href="https://blog.naver.com/happyseogu/224296587464" rel="noopener nofollow" target="_blank" data-track="source_click" data-code="27170" data-kind="youth">출처</a></div>
       </li>
       <li>
           <div class="k"><span>주거</span><span class="amt"></span></div>
           <p>대구 청년희망주택 입주자 임대료 지원</p>
-          <div class="src">2026 <a href="https://www.daegu.go.kr/YouthPolicy/index.do?menu_id=00939141&amp;menu_link=/front/youthpolicy/selectYouthpolicy.do&amp;youthpolicy_id=YOUTH_0000000000663" rel="noopener nofollow" target="_blank">출처</a></div>
+          <div class="src">2026 <a href="https://www.daegu.go.kr/YouthPolicy/index.do?menu_id=00939141&amp;menu_link=/front/youthpolicy/selectYouthpolicy.do&amp;youthpolicy_id=YOUTH_0000000000663" rel="noopener nofollow" target="_blank" data-track="source_click" data-code="27170" data-kind="housing">출처</a></div>
       </li>
       <li>
           <div class="k"><span>귀농·귀촌</span></div><p class="none">조사된 고정 지원 없음</p>
@@ -174,16 +175,16 @@
       </li>
       <li>
           <div class="k"><span>출산 (지자체분)</span><span class="amt">첫째 0원 · 셋째 200만 원</span></div>
-          <div class="src">2026 <a href="https://www.dgs.go.kr/portal/contents.do?mid=0303100200" rel="noopener nofollow" target="_blank">출처</a></div>
+          <div class="src">2026 <a href="https://www.dgs.go.kr/portal/contents.do?mid=0303100200" rel="noopener nofollow" target="_blank" data-track="source_click" data-code="27170" data-kind="birth">출처</a></div>
       </li>
     </ul>
-    <p class="note">금액은 조건이 붙는 최대치이고, 예산 소진·조례 개정으로 바뀔 수 있습니다. 틀린 정보는 <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정정 요청</a>해 주세요. <a href="https://www.dgs.go.kr" rel="noopener" target="_blank">서구 누리집</a></p>
+    <p class="note">금액은 조건이 붙는 최대치이고, 예산 소진·조례 개정으로 바뀔 수 있습니다. 틀린 정보는 <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank" data-track="correction_click" data-code="27170">정정 요청</a>해 주세요. <a href="https://www.dgs.go.kr" rel="noopener" target="_blank">서구 누리집</a></p>
   </section>
 
   <section style="margin-top:20px">
     <h2 style="font-size:18px">가까운 다른 후보지</h2>
     <div class="related">
-<a class="btn sm" href="/region/27200">대구 남구</a><a class="btn sm" href="/region/47840">경북 성주군</a><a class="btn sm" href="/region/47820">경북 청도군</a><a class="btn sm" href="/region/47830">경북 고령군</a><a class="btn sm" href="/region/27720">대구 군위군</a>    </div>
+<a class="btn sm" href="/region/27200/">대구 남구</a><a class="btn sm" href="/region/47840/">경북 성주군</a><a class="btn sm" href="/region/47820/">경북 청도군</a><a class="btn sm" href="/region/47830/">경북 고령군</a><a class="btn sm" href="/region/27720/">대구 군위군</a>    </div>
   </section>
 </article>
 </main>
@@ -195,11 +196,12 @@
       지원 금액은 조건이 붙는 최대치입니다. 신청 전 해당 시·군에 확인하세요.
     </div>
     <nav aria-label="사이트 정보">
-      <a href="/insight">데이터와 방법</a>
-      <a href="/partners">지자체 파트너</a>
-      <a href="/privacy">개인정보처리방침</a>
-      <a href="/terms">이용약관</a>
+      <a href="/insight/">데이터와 방법</a>
+      <a href="/partners/">지자체 파트너</a>
+      <a href="/privacy/">개인정보처리방침</a>
+      <a href="/terms/">이용약관</a>
       <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정보 정정 요청</a>
+      <button class="btn ghost sm" type="button" id="optOut" style="min-height:0;padding:0;font-weight:400;font-size:13px;text-decoration:underline">통계 수집 거부</button>
     </nav>
   </div>
 </footer>

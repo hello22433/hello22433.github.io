@@ -133,7 +133,7 @@
     <button class="btn ghost sm" type="button" data-close>← 목록</button>
     <span class="grow"></span>
     <button class="btn sm" type="button" id="drawerCompare">비교에 담기</button>
-    <a class="btn sm" id="drawerLink" href="/">새 창</a>
+    <a class="btn sm" id="drawerLink" href="{{ base }}/">새 창</a>
   </div>
   <div id="drawerBody"><p class="empty">불러오는 중…</p></div>
 </dialog>
@@ -144,9 +144,9 @@
     <div id="compareBody"></div>
     <div class="callout green" style="margin-top:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
       <span><b>이 지역들로 맞춤 리포트 받기</b> · 지원금 신청 순서와 일정, 군청에 물어볼 질문까지 정리해 드립니다.</span>
-      <a class="btn primary" id="compareReport" href="/report">리포트 미리보기</a>
+      <a class="btn primary" id="compareReport" href="{{ base }}/report/">리포트 미리보기</a>
     </div>
   </div>
 </dialog>
 {% endblock %}
-{% block scripts %}<script type="module" src="/assets/app.js"></script>{% endblock %}
+{% block scripts %}<script type="module" src="{{ base }}/assets/app.js"></script>{% endblock %}

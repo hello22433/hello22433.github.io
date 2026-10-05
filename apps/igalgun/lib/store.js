@@ -2,7 +2,7 @@
 // KV_REST_API_URL / KV_REST_API_TOKEN 이 자동으로 들어온다.
 // 테스트에서는 IGG_MEMORY_STORE=1 로 메모리 저장소를 쓴다.
 
-const memory = { kv: new Map(), lists: new Map(), hashes: new Map() };
+const memory = { kv: new Map(), lists: new Map(), hashes: new Map(), sets: new Map() };
 
 function config() {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -36,7 +36,7 @@ async function pipeline(commands) {
 }
 
 function runMemory([cmd, ...args]) {
-  const { kv, lists, hashes } = memory;
+  const { kv, lists, hashes, sets } = memory;
   switch (cmd.toUpperCase()) {
     case 'SET': kv.set(args[0], args[1]); return 'OK';
     case 'GET': return kv.has(args[0]) ? kv.get(args[0]) : null;
@@ -47,12 +47,24 @@ function runMemory([cmd, ...args]) {
     case 'LLEN': return (lists.get(args[0]) || []).length;
     case 'HINCRBY': { const h = hashes.get(args[0]) || {}; h[args[1]] = Number(h[args[1]] || 0) + Number(args[2]); hashes.set(args[0], h); return h[args[1]]; }
     case 'HGETALL': { const h = hashes.get(args[0]) || {}; return Object.entries(h).flat().map(String); }
+    case 'LTRIM': { const l = lists.get(args[0]) || []; const end = Number(args[2]); lists.set(args[0], l.slice(Number(args[1]), end === -1 ? undefined : end + 1)); return 'OK'; }
+    case 'PFADD': case 'SADD': { const set = sets.get(args[0]) || new Set(); const before = set.size; args.slice(1).forEach((m) => set.add(m)); sets.set(args[0], set); return set.size > before ? 1 : 0; }
+    case 'PFCOUNT': { const u = new Set(); for (const k of args) for (const m of sets.get(k) || []) u.add(m); return u.size; }
+    case 'SMEMBERS': return [...(sets.get(args[0]) || [])];
+    case 'DEL': { let n = 0; for (const k of args) { n += [kv, lists, hashes, sets].some((m) => m.delete(k)) ? 1 : 0; } return n; }
     default: throw new Error(`memory store: ${cmd} 미지원`);
   }
 }
 
 export function resetMemoryStore() {
-  memory.kv.clear(); memory.lists.clear(); memory.hashes.clear();
+  memory.kv.clear(); memory.lists.clear(); memory.hashes.clear(); memory.sets.clear();
+}
+
+// 여러 명령을 한 번에 보낸다. Upstash pipeline은 요청당 명령 수가 많아도 된다.
+export async function exec(commands, chunk = 400) {
+  const out = [];
+  for (let i = 0; i < commands.length; i += chunk) out.push(...(await pipeline(commands.slice(i, i + chunk))));
+  return out;
 }
 
 export const store = {

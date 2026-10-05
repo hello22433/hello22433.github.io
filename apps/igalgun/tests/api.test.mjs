@@ -8,12 +8,11 @@ const { resetMemoryStore } = await import('../lib/store.js');
 const lead = await import('../api/lead.js');
 const subscribe = await import('../api/subscribe.js');
 const partner = await import('../api/partner.js');
-const event = await import('../api/event.js');
 const report = await import('../api/report.js');
 const prepare = await import('../api/payments/prepare.js');
 const confirm = await import('../api/payments/confirm.js');
 const exportApi = await import('../api/admin/export.js');
-const stats = await import('../api/admin/stats.js');
+const analytics = await import('../api/admin/analytics.js');
 const health = await import('../api/health.js');
 
 let ip = 0;
@@ -27,13 +26,11 @@ const goodLead = { regions: ['51770'], contact: '010-1234-5678', purpose: '귀�
 
 beforeEach(() => { resetMemoryStore(); delete process.env.TOSS_CLIENT_KEY; delete process.env.TOSS_SECRET_KEY; delete process.env.REPORT_SECRET; });
 
-test('상담 신청: 정상 접수와 통계', async () => {
+test('상담 신청: 정상 접수와 누적 건수', async () => {
   const res = await lead.POST(post(goodLead));
   assert.equal(res.status, 201);
-  const out = await stats.GET(get('', { authorization: 'Bearer test-admin-token-123456' }));
-  const body = await out.json();
-  assert.equal(body.counts.leads, 1);
-  assert.equal(body.rows.find((r) => r.code === '51770').lead, 1);
+  const body = await (await analytics.GET(get('days=7', { authorization: 'Bearer test-admin-token-123456' }))).json();
+  assert.equal(body.truth.leads, 1);
 });
 
 test('상담 신청: 동의 없음·잘못된 연락처·없는 지역은 거절', async () => {
@@ -62,14 +59,6 @@ test('구독과 파트너 문의', async () => {
   assert.equal((await subscribe.POST(post({ email: 'nope', regions: [], consent: true }))).status, 400);
   assert.equal((await partner.POST(post({ org: '옥천군청', name: '김담당', contact: 'team@okcheon.go.kr', plan: 'partner', consent: true }))).status, 201);
   assert.equal((await partner.POST(post({ org: '', name: '김', contact: 'x@y.kr', consent: true }))).status, 400);
-});
-
-test('이벤트: 알 수 없는 값은 무시하고 집계', async () => {
-  assert.equal((await event.POST(post({ type: 'view', code: '51770' }))).status, 204);
-  assert.equal((await event.POST(post({ type: 'hack', code: '51770' }))).status, 204);
-  const month = new Date().toISOString().slice(0, 7);
-  const body = await (await stats.GET(get(`month=${month}`, { authorization: 'Bearer test-admin-token-123456' }))).json();
-  assert.equal(body.rows.find((r) => r.code === '51770').view, 1);
 });
 
 test('관리자: 토큰 없으면 401, CSV는 수식 주입 방지', async () => {
@@ -114,4 +103,12 @@ test('결제: 키가 없으면 503, 있으면 주문→승인→리포트', asyn
 test('헬스체크는 비밀값을 노출하지 않음', async () => {
   const body = await (await health.GET()).json();
   assert.deepEqual(Object.keys(body).sort(), ['admin', 'notify', 'ok', 'payments', 'store']);
+});
+
+test('CORS: 허용된 출처만 응답 헤더와 사전 요청 허용', async () => {
+  const req = (origin) => new Request('http://t/api', { method: 'OPTIONS', headers: { origin } });
+  assert.equal((await lead.OPTIONS(req('https://hello22433.github.io'))).status, 204);
+  assert.equal((await lead.OPTIONS(req('https://evil.example'))).status, 403);
+  const res = await lead.POST(post(goodLead, { origin: 'https://hello22433.github.io' }));
+  assert.equal(res.headers.get('access-control-allow-origin'), 'https://hello22433.github.io');
 });

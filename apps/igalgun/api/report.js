@@ -3,7 +3,7 @@
 //   ?preview=1&regions=a,b&profile= 무료 미리보기(일정·지원 내역 잠금)
 //   ?order=igg_...&token=...        결제한 리포트
 import { store } from '../lib/store.js';
-import { handle, json, fail } from '../lib/http.js';
+import { preflight, handle, json, fail } from '../lib/http.js';
 import { regionCodes, oneOf } from '../lib/validate.js';
 import { buildReport, PRICES } from '../lib/report.js';
 import { verifyToken, paymentsReady } from '../lib/payments.js';
@@ -25,3 +25,5 @@ export const GET = handle(async (request) => {
   if (!order || order.status !== 'paid') return fail(404, '결제가 확인되지 않은 주문입니다');
   return json({ ok: true, report: buildReport(order.regions, order.profile), orderId, receiptUrl: order.receiptUrl, ...meta });
 });
+
+export const OPTIONS = preflight;

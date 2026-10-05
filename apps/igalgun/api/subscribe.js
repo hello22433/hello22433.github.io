@@ -1,6 +1,6 @@
 // 관심 지역 정책 변경 알림 구독.
 import { store } from '../lib/store.js';
-import { handle, json, fail, readBody, clientKey } from '../lib/http.js';
+import { preflight, handle, json, fail, readBody, clientKey } from '../lib/http.js';
 import { email, regionCodes, mustConsent, isBot, oneOf } from '../lib/validate.js';
 
 export const POST = handle(async (request) => {
@@ -17,6 +17,7 @@ export const POST = handle(async (request) => {
     consent: mustConsent(body.consent, '알림 수신을 위한 이메일 수집'),
   };
   await store.push('subscribers', sub);
-  for (const code of sub.regions) await store.hincr('stats:subscribe', code);
   return json({ ok: true }, 201);
 });
+
+export const OPTIONS = preflight;

@@ -1,6 +1,6 @@
 // 결제 전 주문 생성. 금액은 서버가 정하고, 승인 단계에서 다시 대조한다.
 import { store } from '../../lib/store.js';
-import { handle, json, fail, readBody, clientKey } from '../../lib/http.js';
+import { preflight, handle, json, fail, readBody, clientKey } from '../../lib/http.js';
 import { regionCodes, oneOf } from '../../lib/validate.js';
 import { paymentsReady, clientKeyPublic } from '../../lib/payments.js';
 import { priceFor, REPORT_NAME } from '../../lib/report.js';
@@ -28,3 +28,5 @@ export const POST = handle(async (request) => {
     customerKey: `anon_${crypto.randomUUID()}`,
   });
 });
+
+export const OPTIONS = preflight;

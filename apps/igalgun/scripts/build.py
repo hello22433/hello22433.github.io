@@ -67,6 +67,8 @@ def clean_item(it):
     url = (it.get('url') or '').split(' ')[0]
     if not url.startswith('http'):
         return None
+    # 모든 출처는 HTTPS로 연결한다(2026-10 확인: 아래 언론사 모두 HTTPS 응답)
+    url = 'https://' + url[len('http://'):].replace(':8080/', '/') if url.startswith('http://') else url
     out = {'url': url, 'year': it.get('year')}
     for k in ('amount', 'desc', 'first', 'third'):
         if it.get(k) is not None:
@@ -84,7 +86,7 @@ def load_regions():
         inc = r.get('inc') or {}
         r['inc'] = {k: clean_item(inc.get(k)) for k in ('youth', 'farm', 'housing', 'birth', 'transfer')}
         hp = inc.get('homepage')
-        r['inc']['homepage'] = hp if hp and hp.startswith('http') else None
+        r['inc']['homepage'] = ('https://' + hp[len('http://'):] if hp.startswith('http://') else hp) if hp and hp.startswith('http') else None
         r['bi_monthly'] = BI_MONTHLY.get(r['name'], 150_000) if r.get('basic_income') else None
         r.pop('id', None)
         out.append(r)
@@ -155,27 +157,36 @@ def region_summary(r, rank):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--site-url', default=os.environ.get('SITE_URL', 'https://igalgun.vercel.app'))
+    ap.add_argument('--base', default=os.environ.get('BASE_PATH', ''), help='하위 경로 배포 시 접두사, 예: /igalgun')
+    ap.add_argument('--api', default=os.environ.get('API_BASE', '/api'), help="API 주소. 'none'이면 접수·수집 기능을 끈다")
+    ap.add_argument('--out', default=PUB, help='출력 폴더')
     args = ap.parse_args()
-    site = args.site_url.rstrip('/')
+    base = args.base.rstrip('/')
+    api = None if args.api in ('', 'none') else args.api.rstrip('/')
+    out_dir = os.path.abspath(args.out)
+    site = args.site_url.rstrip('/') + base
 
     regions = load_regions()
     geo = json.load(open(os.path.join(DATA, 'mapgeo.json')))
     regions.sort(key=lambda r: (r['sido'], r['name']))
 
-    os.makedirs(os.path.join(PUB, 'data'), exist_ok=True)
+    if out_dir != PUB:
+        shutil.rmtree(out_dir, ignore_errors=True)
+        shutil.copytree(os.path.join(PUB, 'assets'), os.path.join(out_dir, 'assets'))
+    os.makedirs(os.path.join(out_dir, 'data'), exist_ok=True)
     payload = {'asOf': AS_OF, 'regions': regions, 'map': geo, 'signals': SIGNALS, 'matrix': MATRIX}
-    with open(os.path.join(PUB, 'data', 'regions.json'), 'w') as f:
+    with open(os.path.join(out_dir, 'data', 'regions.json'), 'w') as f:
         json.dump(payload, f, ensure_ascii=False, separators=(',', ':'))
 
     env = Environment(loader=FileSystemLoader(os.path.join(ROOT, 'templates')), autoescape=select_autoescape(['html']),
                       trim_blocks=True, lstrip_blocks=True)
     env.filters.update(won=won, pct=pct, comma=lambda n: f"{n:,}")
-    common = {'site': site, 'as_of': AS_OF, 'year': date.fromisoformat(AS_OF).year, 'plans': PLANS,
+    common = {'site': site, 'base': base, 'api': api, 'as_of': AS_OF, 'year': date.fromisoformat(AS_OF).year, 'plans': PLANS,
               'region_count': len(regions), 'bi_count': sum(1 for r in regions if r.get('basic_income')),
               'signals': SIGNALS, 'matrix': MATRIX}
 
     def render(tpl, out, **ctx):
-        path = os.path.join(PUB, out)
+        path = os.path.join(out_dir, out)
         os.makedirs(os.path.dirname(path), exist_ok=True)
         html = env.get_template(tpl).render(**common, **ctx)
         with open(path, 'w') as f:
@@ -201,21 +212,22 @@ def main():
     render('404.html', '404.html', page='404')
 
     pc = percentiles(regions)
-    shutil.rmtree(os.path.join(PUB, 'region'), ignore_errors=True)
+    shutil.rmtree(os.path.join(out_dir, 'region'), ignore_errors=True)
     for i, r in enumerate(regions):
         render('region.html', f"region/{r['code']}/index.html", page='region', r=r, spark=spark_svg(r),
                related=related(r, regions), second_home=second_home(r), summary=region_summary(r, i),
                pc={k: round(v[i] * 100) for k, v in pc.items()}, regions=regions)
 
-    urls = ['', '/insight', '/report', '/partners', '/privacy', '/terms'] + [f"/region/{r['code']}" for r in regions]
-    with open(os.path.join(PUB, 'sitemap.xml'), 'w') as f:
+    urls = ['/', '/insight/', '/report/', '/partners/', '/privacy/', '/terms/'] + [f"/region/{r['code']}/" for r in regions]
+    with open(os.path.join(out_dir, 'sitemap.xml'), 'w') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for u in urls:
             f.write(f"  <url><loc>{site}{u}</loc><lastmod>{AS_OF}</lastmod></url>\n")
         f.write('</urlset>\n')
-    with open(os.path.join(PUB, 'robots.txt'), 'w') as f:
-        f.write(f"User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nSitemap: {site}/sitemap.xml\n")
-    print(f"built {len(regions)} regions, {len(urls)} urls → {PUB}")
+    if not base:
+        with open(os.path.join(out_dir, 'robots.txt'), 'w') as f:
+            f.write(f"User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nSitemap: {site}/sitemap.xml\n")
+    print(f"built {len(regions)} regions, {len(urls)} urls → {out_dir} (base={base or '/'}, api={api})")
 
 
 if __name__ == '__main__':

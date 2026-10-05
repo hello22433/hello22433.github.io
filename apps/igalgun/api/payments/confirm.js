@@ -1,6 +1,6 @@
 // 토스페이먼츠 successUrl에서 호출. 주문 금액을 대조한 뒤 결제를 승인한다.
 import { store } from '../../lib/store.js';
-import { handle, json, fail, readBody } from '../../lib/http.js';
+import { preflight, handle, json, fail, readBody } from '../../lib/http.js';
 import { paymentsReady, confirmPayment, reportToken } from '../../lib/payments.js';
 import { notify } from '../../lib/notify.js';
 
@@ -32,3 +32,5 @@ export const POST = handle(async (request) => {
   await notify('리포트 결제', `${orderId} · ${paid.amount}원`);
   return json({ ok: true, orderId, token: reportToken(orderId), receiptUrl: paid.receiptUrl });
 });
+
+export const OPTIONS = preflight;

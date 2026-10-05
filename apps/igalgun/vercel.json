@@ -3,7 +3,6 @@
   "buildCommand": "",
   "outputDirectory": "public",
   "cleanUrls": true,
-  "trailingSlash": false,
   "functions": {
     "api/**/*.js": {
       "maxDuration": 10,
@@ -49,6 +48,12 @@
           "value": "public, max-age=3600, stale-while-revalidate=86400"
         }
       ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/digest",
+      "schedule": "0 0 * * 1"
     }
   ]
 }

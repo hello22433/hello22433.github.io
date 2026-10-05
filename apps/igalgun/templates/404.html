@@ -4,6 +4,6 @@
 {% block main %}
 <div class="wrap page">
   <header><div class="eyebrow">404</div><h1>찾는 페이지가 없습니다</h1><p>주소가 바뀌었거나 인구감소지역 89곳에 없는 지역일 수 있습니다.</p></header>
-  <p style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="/">지역 찾기로 가기</a><button class="btn" type="button" onclick="document.getElementById('openSearch').click()">지역 이름으로 찾기</button></p>
+  <p style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn primary" href="{{ base }}/">지역 찾기로 가기</a><button class="btn" type="button" onclick="document.getElementById('openSearch').click()">지역 이름으로 찾기</button></p>
 </div>
 {% endblock %}

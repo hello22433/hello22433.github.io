@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}기본소득 17개 군, 1년 새 인구가 늘었다 · 이사갈군 인사이트{% endblock %}
 {% block desc %}인구감소지역 89곳의 주민등록 인구를 분석한 결과, 농어촌 기본소득 시범지역은 1년간 {{ facts.bi_chg|pct(2) }}, 나머지 지역은 {{ facts.ot_chg|pct(2) }} 변했습니다.{% endblock %}
-{% block path %}/insight{% endblock %}
+{% block path %}/insight/{% endblock %}
 {% block main %}
 <div class="wrap page">
   <header>
@@ -69,4 +69,4 @@
   </section>
 </div>
 {% endblock %}
-{% block scripts %}<script type="module" src="/assets/insight.js"></script>{% endblock %}
+{% block scripts %}<script type="module" src="{{ base }}/assets/insight.js"></script>{% endblock %}

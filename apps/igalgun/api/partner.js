@@ -1,6 +1,6 @@
 // 지자체·기관 파트너 문의.
 import { store } from '../lib/store.js';
-import { handle, json, fail, readBody, clientKey } from '../lib/http.js';
+import { preflight, handle, json, fail, readBody, clientKey } from '../lib/http.js';
 import { text, contact, oneOf, mustConsent, isBot, regionCodes } from '../lib/validate.js';
 import { notify } from '../lib/notify.js';
 
@@ -26,3 +26,5 @@ export const POST = handle(async (request) => {
   await notify('새 파트너 문의', `${inquiry.org} ${inquiry.dept} · ${inquiry.plan}`);
   return json({ ok: true, id: inquiry.id }, 201);
 });
+
+export const OPTIONS = preflight;

@@ -1,6 +1,6 @@
 // 정착 상담 신청. 지역 상세의 "상담 신청" 폼이 보낸다.
 import { store } from '../lib/store.js';
-import { handle, json, fail, readBody, clientKey } from '../lib/http.js';
+import { preflight, handle, json, fail, readBody, clientKey } from '../lib/http.js';
 import { text, contact, regionCodes, oneOf, mustConsent, isBot } from '../lib/validate.js';
 import { notify } from '../lib/notify.js';
 
@@ -25,7 +25,8 @@ export const POST = handle(async (request) => {
     status: 'new',
   };
   await store.push('leads', lead);
-  for (const code of lead.regions) await store.hincr('stats:lead', code);
   await notify('새 정착 상담 신청', `지역 ${lead.regions.join(', ')} · ${lead.purpose || '목적 미입력'} · ${lead.when || '시기 미입력'}`);
   return json({ ok: true, id: lead.id }, 201);
 });
+
+export const OPTIONS = preflight;

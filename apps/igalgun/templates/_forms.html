@@ -1,6 +1,6 @@
 {# 지역 상세(페이지·서랍)에서 쓰는 폼 매크로 #}
 {% macro lead_form(r) %}
-<form class="form" data-endpoint="/api/lead" data-kind="lead" novalidate>
+<form class="form" data-endpoint="lead" data-kind="lead" novalidate>
   <input type="hidden" name="regions" value="{{ r.code }}">
   <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
   <div class="row2">
@@ -28,7 +28,7 @@
 {% endmacro %}
 
 {% macro subscribe_form(code, topic='policy', label='알림 받기', idp='sub') %}
-<form class="form" data-endpoint="/api/subscribe" data-kind="subscribe" novalidate>
+<form class="form" data-endpoint="subscribe" data-kind="subscribe" novalidate>
   <input type="hidden" name="regions" value="{{ code }}">
   <input type="hidden" name="topic" value="{{ topic }}">
   <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
