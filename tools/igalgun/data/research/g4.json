@@ -1,0 +1,365 @@
+[
+ {
+  "sido": "전북",
+  "name": "순창군",
+  "seat": "순창읍",
+  "homepage": "https://www.sunchang.go.kr",
+  "youth": {
+   "amount": 7200000,
+   "desc": "청년 종자통장: 월15만 저축 시 군 월30만 2년 적립(총 1,080만)",
+   "url": "https://www.etoday.co.kr/news/view/2611224",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 10000000,
+   "desc": "귀농 소득기반 시설·장비 50%(최대1천만), 이사정착비 30~50만",
+   "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=67151",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 10000000,
+   "desc": "귀농귀촌 주택 수리·신축 70%(최대1천만), 반할주택 100호 추진",
+   "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=67151",
+   "year": 2026
+  },
+  "birth": {
+   "first": 3000000,
+   "third": 10000000,
+   "url": "https://www.pressian.com/pages/articles/2026041616073393098",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "농어촌 기본소득 시범지역(월 15만원)",
+  "notes": "youth amount=군 적립분(30만x24); 본인 저축 포함 수령 1,080만. 기본소득은 newspim 2026-03-23 기사 근거. 반할주택 100호(시세 절반)는 2031년까지 공급 예정."
+ },
+ {
+  "sido": "전북",
+  "name": "임실군",
+  "seat": "임실읍",
+  "homepage": "https://www.imsil.go.kr",
+  "youth": {
+   "amount": 36000000,
+   "desc": "청년농 영농정착지원 3년간 월110·100·90만원",
+   "url": "https://www.newsis.com/view/NISX20260605_0003657881",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농귀촌 주택 구입·신축·수리 최대500만, 귀농 정착금 100만",
+   "url": "https://www.imsil.go.kr/index.imsil?menuCd=DOM_000000104003006000",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 25000000,
+   "desc": "희망하우스 빈집재생 최대2,500만 지원 후 무상임대",
+   "url": "https://m.news.nate.com/view/20260625n29841",
+   "year": 2026
+  },
+  "birth": {
+   "first": 3000000,
+   "third": 5000000,
+   "url": "https://www.imsil.go.kr/index.imsil?menuCd=DOM_000000104001006000",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "전북형 반할주택 선정(임대료 50%, 출산 시 면제)",
+  "notes": "youth는 국비 청년농 영농정착지원(전국사업)이라 지역 고유 아님. 군청 페이지 연도 표기 미확인(현행 기준). 반할주택은 2025 선정(seoul.co.kr 2025-04-29)."
+ },
+ {
+  "sido": "전북",
+  "name": "장수군",
+  "seat": "장수읍",
+  "homepage": "https://www.jangsu.go.kr",
+  "youth": {
+   "amount": 36000000,
+   "desc": "청년농 영농정착지원 최장3년 월 최대110만원",
+   "url": "https://www.asiatoday.co.kr/kn/view.php?key=20260611010003879",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농귀촌 주택수리비 최대500만(50%), 설계비 200만, 임시거주 8곳",
+   "url": "https://www.jangsu.go.kr/index.jangsu?menuCd=DOM_000000106004000000",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 3000000,
+   "desc": "청년·신혼부부 주거비 연 최대100만원, 최대 3년",
+   "url": "https://www.newspim.com/news/view/20260413000551",
+   "year": 2026
+  },
+  "birth": {
+   "first": 5000000,
+   "third": 10000000,
+   "url": "https://www.jangsu.go.kr/index.jangsu?menuCd=DOM_000000106005002000",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "결혼축하금 1,000만원(3년 분할)",
+  "notes": "youth는 국비 청년농 영농정착 사업. 귀농 이사비/정착금은 근거 불충분해 제외. 융자(창업3억·주택7,500만) 별도."
+ },
+ {
+  "sido": "전북",
+  "name": "정읍시",
+  "seat": "수성동",
+  "homepage": "https://www.jeongeup.go.kr",
+  "youth": {
+   "amount": 500000,
+   "desc": "전입 청년(18~45세) 이사비 실비 최대50만원",
+   "url": "https://view.asiae.co.kr/article/2026012811093388526",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 20000000,
+   "desc": "귀농 영농정착 지원 최대1천만(2030청년 1,500만·결혼세대 2천만)",
+   "url": "https://view.asiae.co.kr/article/2026020215495337545",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 30000000,
+   "desc": "희망하우스 빈집 리모델링 최대3천만, 4년 무상임대",
+   "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2086548",
+   "year": 2026
+  },
+  "birth": {
+   "first": 2000000,
+   "third": 5000000,
+   "url": "https://www.servedream.com/service/469000000107",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 500000,
+   "desc": "전입 6개월 20만·1년 30만 정읍사랑상품권",
+   "url": "https://www.servedream.com/service/469100000011",
+   "year": 2026
+  },
+  "highlight": "KTX 정읍역 정차(호남고속선)",
+  "notes": "출산 금액은 servedream/시 게시판 기준, 연도 명확치 않음. 청년·신혼 임대보증금 무이자 융자(청년 3천만) 별도. 시청 소재지 수성동(충정로 234)."
+ },
+ {
+  "sido": "전북",
+  "name": "진안군",
+  "seat": "진안읍",
+  "homepage": "https://www.jinan.go.kr",
+  "youth": {
+   "amount": 1800000,
+   "desc": "취업 청년(18~45세) 주거비 월 최대15만원 1년",
+   "url": "https://m.news.nate.com/view/20260315n09121",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농귀촌 세대 월임대료 50%(월15만 한도), 창업·주택 융자",
+   "url": "https://www.jinan.go.kr/index.jinan?menuCd=DOM_000000109011004002",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 30000000,
+   "desc": "희망하우스 빈집 리모델링 최대3천만원",
+   "url": "https://www.jinan.go.kr/index.jinan?menuCd=DOM_000000109011004002",
+   "year": 2026
+  },
+  "birth": {
+   "first": 3000000,
+   "third": 10000000,
+   "url": "https://www.jinan.go.kr/health/index.jinan?menuCd=DOM_000000602001001000",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "인구 2만5천명 회복, 귀농·유학가족 임대주택 30호",
+  "notes": "귀농 주거비 지원 기간 미확인으로 farm amount null. 마령면 행복주택 2026-12 입주 예정."
+ },
+ {
+  "sido": "전남",
+  "name": "강진군",
+  "seat": "강진읍",
+  "homepage": "https://www.gangjin.go.kr",
+  "youth": null,
+  "farm": {
+   "amount": 20000000,
+   "desc": "귀농 정착자금 2천만원, 묵은지 사업 등 중복 최대7,300만",
+   "url": "https://www.nsori.com/news/articleView.html?idxno=24978",
+   "year": 2024
+  },
+  "housing": {
+   "amount": 30000000,
+   "desc": "빈집 리모델링 월1만원 임대(5~7년), 신축·자가수리 최대3천만",
+   "url": "https://www.nsori.com/news/articleView.html?idxno=24978",
+   "year": 2024
+  },
+  "birth": {
+   "first": 50400000,
+   "third": 50400000,
+   "url": "https://lifewithbaby.co.kr/money/196/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "육아수당 아동1인 월60만원×7년(최대 5,040만원)",
+  "notes": "farm/housing은 2024-04 강진일보 기사 기준(2026 확인 못함). 청년 전용 정착지원 찾지 못함. birth는 육아수당만(출생 순위 무관); 산후조리비 160만, 전남 출생기본소득(월10만×216개월) 별도·미포함."
+ },
+ {
+  "sido": "전남",
+  "name": "고흥군",
+  "seat": "고흥읍",
+  "homepage": "https://www.goheung.go.kr",
+  "youth": {
+   "amount": 500000,
+   "desc": "관외 전입 청년가구 이사비·중개수수료·청소비 최대50만",
+   "url": "https://www.goheung.go.kr/home/www/down/www453/2026/03%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%EC%8B%A4.pdf",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "전입5년내 귀농어귀촌인 농가주택 수리비 500만, 귀향청년 정착장려금",
+   "url": "https://www.goheung.go.kr/home/www/down/www453/2026/03%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%EC%8B%A4.pdf",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "전남형 만원주택 50호(청년·신혼), 만원 세컨하우스",
+   "url": "https://www.goheung.go.kr/home/www/down/www453/2026/03%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%EC%8B%A4.pdf",
+   "year": 2026
+  },
+  "birth": {
+   "first": 11800000,
+   "third": 12000000,
+   "url": "https://lifewithbaby.co.kr/money/197/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 100000,
+   "desc": "전입자 1인당 10만원(인원 제한 없음), 자동차세·주민세 별도",
+   "url": "https://www.goheung.go.kr/home/www/down/www453/2026/03%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%EC%8B%A4.pdf",
+   "year": 2026
+  },
+  "highlight": "월 1만원 임대 '전남형 만원주택' 2027 준공",
+  "notes": "birth=출산장려금 월30만×36(1,080만)+돌축하금50만+산모회복비(첫째50만/셋째70만); 출생기본소득 제외. 만원주택 입주자 모집 2026-06, 준공 2027-03."
+ },
+ {
+  "sido": "전남",
+  "name": "곡성군",
+  "seat": "곡성읍",
+  "homepage": "https://www.gokseong.go.kr",
+  "youth": {
+   "amount": 1200000,
+   "desc": "1인 청년가구 월세 월 최대10만원 12개월(군 자체)",
+   "url": "https://www.pressian.com/pages/articles/2026033016270569625",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농 창업 최대3억·주택 7,500만 융자(연2%)",
+   "url": "https://www.therealnews.co.kr/21654",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "신혼·청년 특화주택 월1만원 임대 최장16년(70가구)",
+   "url": "https://news.nate.com/view/20260102n23422",
+   "year": 2026
+  },
+  "birth": {
+   "first": 3000000,
+   "third": 5000000,
+   "url": "https://lifewithbaby.co.kr/money/198/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "농어촌 기본소득 시범사업 추진 지역",
+  "notes": "youth: pressian 기사에 국토부 청년월세(월20만×24)와 군 자체(월10만×12) 병기. farm는 융자뿐(보조금 확인 못함). 출생기본소득 2,160만 제외. 셋째 별도 50만 지원 가능성 있어 미반영."
+ },
+ {
+  "sido": "전남",
+  "name": "구례군",
+  "seat": "구례읍",
+  "homepage": "https://www.gurye.go.kr",
+  "youth": {
+   "amount": 2400000,
+   "desc": "고향의 보금자리: 청년 주거생활비 월5만원 최대4년",
+   "url": "https://www.gurye.go.kr/kr/subPage.do?menuNo=117016000000",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 4000000,
+   "desc": "귀농 주택수리 최대400만, 농업시설 최대420만",
+   "url": "https://www.gurye.go.kr/kr/subPage.do?menuNo=117003013000",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "귀농귀촌 모듈러 단독주택단지 '돌오마을' 입주",
+   "url": "https://www.newspim.com/news/view/20231129000250",
+   "year": 2023
+  },
+  "birth": {
+   "first": 3000000,
+   "third": 7500000,
+   "url": "https://lifewithbaby.co.kr/money/200/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": null,
+   "desc": "전입 1인당 종량제봉투(20L/50L) 지급, 결혼축하금 200만",
+   "url": "https://www.gurye.go.kr/kr/subPage.do?menuNo=117016000000",
+   "year": 2026
+  },
+  "highlight": "생활인구 3년 연속 전국 1위, 청년마을 '수숲기간'",
+  "notes": "군청 페이지 연도 표기 미확인(2026 조회 기준). 셋째: 출산장려 양육비 750만 + 다둥이 육아용품 50만 별도; 출생기본소득 제외. 주거 항목은 2023 기사."
+ },
+ {
+  "sido": "전남",
+  "name": "담양군",
+  "seat": "담양읍",
+  "homepage": "https://www.damyang.go.kr",
+  "youth": null,
+  "farm": {
+   "amount": 6000000,
+   "desc": "전입5년내 귀농인 농가주택 수리비 보조 600만(자부담 400만)",
+   "url": "https://www.newspim.com/news/view/20250417000443",
+   "year": 2025
+  },
+  "housing": null,
+  "birth": {
+   "first": 1300000,
+   "third": 10000000,
+   "url": "https://lifewithbaby.co.kr/money/202/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "지방소멸대응 '지역활력타운' 선정지",
+  "notes": "검색 한도 소진으로 청년·주거·전입 자료 확보 못함. 지역활력타운은 newspim 2023-06-02 기사. 출생기본소득 제외; 셋째 1,000만 2년 분할(50% 상품권)."
+ },
+ {
+  "sido": "전남",
+  "name": "보성군",
+  "seat": "보성읍",
+  "homepage": "https://www.boseong.go.kr",
+  "youth": {
+   "amount": 20000000,
+   "desc": "청년기업(18~49세) 환경개선·컨설팅 최대2천만원",
+   "url": "https://www.newspim.com/news/view/20260804001077",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농귀촌 농가주택 수리 최대500만, 정착장려금 20~50만",
+   "url": "https://www.boseong.go.kr/www/life_welfare/population_policy",
+   "year": 2026
+  },
+  "housing": null,
+  "birth": {
+   "first": 6000000,
+   "third": 10800000,
+   "url": "https://lifewithbaby.co.kr/money/205/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 1000000,
+   "desc": "신혼부부 전입 100만, 중고생 30만, 일반 종량제봉투",
+   "url": "https://www.boseong.go.kr/www/life_welfare/population_policy",
+   "year": 2026
+  },
+  "highlight": "농어촌 기본소득 시범(1인 월20만원, 2026.7~)",
+  "notes": "birth=출산장려금(첫째 월25만×24, 셋째 월45만×24); 보성군·전남 출생기본소득 각 2,160만 제외. 주거는 농촌주택개량 융자 등만 확인되어 null. transfer amount는 신혼부부 기준."
+ }
+]

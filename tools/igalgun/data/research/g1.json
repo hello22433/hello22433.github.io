@@ -1,0 +1,520 @@
+[
+ {
+  "sido": "부산",
+  "name": "동구",
+  "seat": "수정동",
+  "homepage": "https://www.bsdonggu.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년월세 월20만원×24개월(국·시비), 부산 전입청년 이사비·중개비 최대 40만원 별도",
+   "url": "https://young.busan.go.kr/index.nm?menuCd=37",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "부산 '평생함께 청년모두가': 공공임대 청년·신혼부부 월세 중 3만원 외 지원",
+   "url": "https://www.busan.go.kr/depart/house0204",
+   "year": 2026
+  },
+  "birth": {
+   "first": 0,
+   "third": 3000000,
+   "url": "https://www.bsdonggu.go.kr/welfare/index.donggu?menuCd=DOM_000000203002004000",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "부산역·북항 재개발 인접 원도심",
+  "notes": "출산: 첫째 지역지원 없음(0). 셋째=구 200만(월20만×10)+부산시 둘째이상 100만. 청년월세는 국토부·시 공통사업. 귀농·전입지원 해당 없음. seat 수정동(구청로 1)은 기억 기반."
+ },
+ {
+  "sido": "부산",
+  "name": "서구",
+  "seat": "토성동4가",
+  "homepage": "https://www.bsseogu.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년월세 월20만원×24개월, 부산 전입청년 이사비·중개비 최대 40만원 별도",
+   "url": "https://biz.heraldcorp.com/article/10843766",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "부산 '평생함께 청년모두가': 공공임대 청년·신혼부부 월세 중 3만원 외 지원",
+   "url": "https://www.busan.go.kr/depart/house0204",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 2000000,
+   "url": "https://www.bsseogu.go.kr/welfare/index.bsseogu?menuCd=DOM_000000903001003000",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "2026년생부터 모든 출생아 100만원 구 출산지원금",
+  "notes": "출산: 구 100만원(2026.1.1 이후 모든 출생아)+부산시 둘째이상 100만. 귀농·전입지원 미확인."
+ },
+ {
+  "sido": "부산",
+  "name": "영도구",
+  "seat": "청학동",
+  "homepage": "https://www.yeongdo.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년월세 월20만원×24개월(19~34세 무주택)",
+   "url": "https://www.yeongdo.go.kr/00672/04452/04564.web",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "부산 '평생함께 청년모두가': 공공임대 청년·신혼부부 월세 중 3만원 외 지원",
+   "url": "https://www.busan.go.kr/depart/house0204",
+   "year": 2026
+  },
+  "birth": {
+   "first": 5000000,
+   "third": 6000000,
+   "url": "https://lifewithbaby.co.kr/money/72/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "모든 출생아 출산축하금 500만원(4년 분할)",
+  "notes": "출산: 구 500만(100만×5회, 모든 순위)+부산시 둘째이상 100만; 출처는 민간 정리사이트+검색요약(공식 페이지 미방문). 빈집→유학생 기숙사 사례 있음."
+ },
+ {
+  "sido": "대구",
+  "name": "남구",
+  "seat": "이천동",
+  "homepage": "https://nam.daegu.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년월세 월20만원×24개월(19~34세 무주택)",
+   "url": "https://www.daegu.go.kr/YouthPolicy/index.do?menu_id=00939141&menu_link=/front/youthpolicy/selectYouthpolicy.do&youthpolicy_id=YOUTH_0000000000664",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "대구 청년희망주택 입주자 임대료 지원",
+   "url": "https://www.daegu.go.kr/YouthPolicy/index.do?menu_id=00939141&menu_link=/front/youthpolicy/selectYouthpolicy.do&youthpolicy_id=YOUTH_0000000000663",
+   "year": 2026
+  },
+  "birth": {
+   "first": 100000,
+   "third": 2000000,
+   "url": "https://nam.daegu.kr/health/index.do?menu_id=00001649",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "첫아이 꿈드림 출산축하금 별도 운영",
+  "notes": "첫째 10만원(첫아이 꿈드림, 검색결과 근거), 셋째 200만(둘째이상 출생축하금, 시·구 분담 불명). seat는 남구청(이천로 51) 기준 추정."
+ },
+ {
+  "sido": "대구",
+  "name": "서구",
+  "seat": "평리동",
+  "homepage": "https://www.dgs.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년월세 월20만원×24개월(19~34세 무주택)",
+   "url": "https://blog.naver.com/happyseogu/224296587464",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "대구 청년희망주택 입주자 임대료 지원",
+   "url": "https://www.daegu.go.kr/YouthPolicy/index.do?menu_id=00939141&menu_link=/front/youthpolicy/selectYouthpolicy.do&youthpolicy_id=YOUTH_0000000000663",
+   "year": 2026
+  },
+  "birth": {
+   "first": 0,
+   "third": 2000000,
+   "url": "https://www.dgs.go.kr/portal/contents.do?mid=0303100200",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "2025 하반기 대구 인구감소지역 중 유일 인구 증가",
+  "notes": "첫째 지역지원 없음(0), 둘째 100만·셋째 200만. seat: 서구청 국채보상로 257 지번 평리동으로 조회됨(중리동 가능성 확인 필요)."
+ },
+ {
+  "sido": "대구",
+  "name": "군위군",
+  "seat": "군위읍",
+  "homepage": "https://www.gunwi.go.kr",
+  "youth": {
+   "amount": null,
+   "desc": "청년(예비)창업 지원·청년월세·청년문화카드(연10만원) 운영",
+   "url": "https://www.metroseoul.co.kr/article/20250722500552",
+   "year": 2025
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농인 정착지원 가구당 500만원(보조80%), 영농기반 확충",
+   "url": "https://gwa.go.kr/bbs/read.do?dept=2&left=1&bbsId=BBSMSTR_000000000011&nttId=1571",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 3000000,
+   "desc": "귀농인 농가주택·빈집 수리비 가구당 300만원(보조100%)",
+   "url": "https://gwa.go.kr/bbs/read.do?dept=2&left=1&bbsId=BBSMSTR_000000000011&nttId=1573",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 3000000,
+   "url": "https://unips.co.kr/%EB%8C%80%EA%B5%AC-%EA%B5%B0%EC%9C%84%EA%B5%B0-%EC%B6%9C%EC%82%B0%EC%A7%80%EC%9B%90%EA%B8%88-%EC%B4%9D%EC%A0%95%EB%A6%AC-%EC%B2%AB%EB%A7%8C%EB%82%A8%EC%9D%B4%EC%9A%A9%EA%B6%8C%C2%B7%EC%B6%9C%EC%82%B0/",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "2023년 대구 편입, 대구경북신공항 예정지",
+  "notes": "출산: 군 출산축하금 100만(모든 순위)+대구시 셋째 200만; 출처 민간 정리사이트. 청년 항목 금액 미확인(2025 기사)."
+ },
+ {
+  "sido": "인천",
+  "name": "강화군",
+  "seat": "강화읍",
+  "homepage": "https://www.ganghwa.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "인천 청년월세 월20만원×24개월(19~39세, 35~39세 인천형)",
+   "url": "https://www.incheon.go.kr/IC010101/view?nttNo=2045737",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농 농업창업(3억)·주택구입(7,500만) 저리 융자 추천",
+   "url": "https://www.ganghwa.go.kr/open_content/main/part/farm/guide_support.jsp",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "'3만원 신혼집': 공공임대 신혼부부 월 임차료 최대 30만원 지원",
+   "url": "https://www.ganghwa.go.kr/open_content/promise/promiseUnitBizFileDownload.do?file_seq=1133",
+   "year": 2026
+  },
+  "birth": {
+   "first": 6200000,
+   "third": 18400000,
+   "url": "https://www.ganghwa.go.kr/open_content/welfare/life/pregnancy/delivery.jsp",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "넷째 출산지원금 2,000만원+양육비·생일축하금",
+  "notes": "출산 합계=출산지원금(첫째 500만/셋째 1,300만)+양육비(첫째 월10만×12=120만, 셋째 월15만×36=540만). 생일축하금 연20만×6년 별도(미포함). 출산일 기준 2년 거주 요건. 귀농 자체 현금지원 미확인(융자만)."
+ },
+ {
+  "sido": "인천",
+  "name": "옹진군",
+  "seat": "신흥동3가",
+  "homepage": "https://www.ongjin.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "인천 청년월세 월20만원×24개월(19~39세)",
+   "url": "https://www.incheon.go.kr/IC010101/view?nttNo=2045737",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 12000000,
+   "desc": "귀농 정착장려금 최대 1,200만원+이사비 100만·주택수리 600만",
+   "url": "https://www.servedream.com/service/358000000113",
+   "year": 2026
+  },
+  "housing": null,
+  "birth": {
+   "first": 1000000,
+   "third": 3000000,
+   "url": "https://www.ongjin.go.kr/open_content/main/environment/welfare/population.jsp",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "섬 지역 귀농 정착장려금 최대 1,200만원(4인 이상)",
+  "notes": "seat: 옹진군청은 군 밖 인천 제물포구(구 미추홀구) 신흥동3가 소재 — 지도 표기 시 주의. 정착장려금 1인 480만/2~3인 720만/4인+ 1,200만. 출생장려금 연 200만 이하 분할로 2026 유지 합의. 주거 지원(청년·신혼) 별도 미확인."
+ },
+ {
+  "sido": "경기",
+  "name": "가평군",
+  "seat": "가평읍",
+  "homepage": "https://www.gp.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년 1인가구 월세 월 최대 20만원, 최대 2년(19~39세)",
+   "url": "https://www.welfarehello.com/policy/2026-%EA%B2%BD%EA%B8%B0-%EA%B0%80%ED%8F%89-%EC%B2%AD%EB%85%84-1%EC%9D%B8-%EA%B0%80%EA%B5%AC-%EC%9B%94%EC%84%B8-%EC%A7%80%EC%9B%90%EC%82%AC%EC%97%85-2%EB%B6%84%EA%B8%B0--254fc25e-6be9-49d2-9713-d698aa23de9c",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농 농업창업 3억·주택구입 7,500만 저리 융자(연 2.0%)",
+   "url": "https://www.gp.go.kr/portal/selectGosiData.do?key=2148&not_ancmt_mgt_no=55554",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "신혼부부 주거자금 대출이자 지원",
+   "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00004881",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 10000000,
+   "url": "https://www.yugacrew.com/gyeonggi/gapyeong/support-money/pregnancy",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "경춘선·ITX-청춘 가평역, 서울 접근성",
+  "notes": "출산: 첫째 100만, 셋째 1,000만(200만×5년), 절반 가평사랑상품권. 출처 민간 정리사이트. 청년월세 2년×20만 산정. 전입지원금 미확인."
+ },
+ {
+  "sido": "경기",
+  "name": "연천군",
+  "seat": "연천읍",
+  "homepage": "https://www.yeoncheon.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "귀농 청년농업인 월세 월 최대 20만원, 최대 2년",
+   "url": "https://www.agrion.kr/portal/bbs/selectContentTypeNew.do?bbsId=BBS_ID0000000005&sn=66850",
+   "year": 2025
+  },
+  "farm": {
+   "amount": 1000000,
+   "desc": "귀농인 영농정착금(농자재 구입) 100만원 이내",
+   "url": "https://www.welfarehello.com/policy/%EA%B2%BD%EA%B8%B0-%EC%97%B0%EC%B2%9C-%EA%B7%80%EB%86%8D%EA%B7%80%EC%B4%8C%EC%9D%B8-%EC%A0%95%EC%B0%A9-%EC%A7%80%EC%9B%90--b3eae576-a39b-4ade-abef-ad63b2ff6fc5",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 2000000,
+   "desc": "전입세대 단독주택 수리비 200만원·신축설계비 100만원 이내",
+   "url": "https://www.welfarehello.com/policy/%EA%B2%BD%EA%B8%B0-%EC%97%B0%EC%B2%9C-%EA%B7%80%EB%86%8D%EA%B7%80%EC%B4%8C%EC%9D%B8-%EC%A0%95%EC%B0%A9-%EC%A7%80%EC%9B%90--b3eae576-a39b-4ade-abef-ad63b2ff6fc5",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 5000000,
+   "url": "https://dongneyuga.com/benefits-gyeonggi-yeoncheon.html",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "농어촌 기본소득 시범지역(2026~27, 월 15만원)",
+  "notes": "전입 정착지원금(1인 최대 30만원 상품권)은 2025.12.31 이전 전입자에 한함→transfer null. 청년 월세 공고는 2025 하반기(2026 지침 게시 확인). 출산 첫째 50만×2년, 셋째 100만×5년. 기본소득 출처: korea.kr/mafra."
+ },
+ {
+  "sido": "충북",
+  "name": "괴산군",
+  "seat": "괴산읍",
+  "homepage": "https://www.goesan.go.kr",
+  "youth": {
+   "amount": 10000000,
+   "desc": "청년신혼부부 정착장려금 최대 1천만원(5년), 월세 월10만(3년)·창업 최대 7천만",
+   "url": "https://www.goesan.go.kr/www/selectBbsNttView.do?key=136&bbsNo=213&nttNo=127217",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농귀촌인 주택수리비 가구당 500만원, 신축설계비 지원",
+   "url": "https://www.goesan.go.kr/www/selectBbsNttView.do?key=1238&bbsNo=251&nttNo=127133",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "농촌빈집 리모델링 활용 귀농귀촌인 임대주택(희망둥지) 입주",
+   "url": "https://www.goesan.go.kr/hc/selectBbsNttView.do?key=1273&bbsNo=190&nttNo=136964",
+   "year": 2026
+  },
+  "birth": {
+   "first": 18000000,
+   "third": 47000000,
+   "url": "https://www.goesan.go.kr/health/selectBbsNttView.do?key=1708&bbsNo=346&nttNo=126659",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 200000,
+   "desc": "관외 1년 이상 거주 후 전입 시 1인당 20만원",
+   "url": "https://www.goesan.go.kr/www/selectBbsNttView.do?key=136&bbsNo=213&nttNo=127217",
+   "year": 2026
+  },
+  "highlight": "2026년생부터 첫째 2천만·셋째 5천만원 출산지원",
+  "notes": "홍보액(첫째 2천만/셋째 5천만)은 첫만남이용권(200/300만) 포함. 국가분 제외 시 군 800만+충북 출산육아수당 1,000만=1,800만, 셋째 3,700만+1,000만=4,700만(dongneyuga.com 분해 기준). 충북 출산육아수당(도·시군 분담)을 지역분으로 포함함."
+ },
+ {
+  "sido": "충북",
+  "name": "단양군",
+  "seat": "단양읍",
+  "homepage": "https://www.danyang.go.kr",
+  "youth": {
+   "amount": 10000000,
+   "desc": "청년부부 정착장려금 부부당 1천만원 이내(분할)",
+   "url": "https://www.chungbuk.go.kr/young/contents.do?key=5032",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 6000000,
+   "desc": "귀농 정착장려금 1인 300만~3인이상 600만(24개월 후)",
+   "url": "https://www.danyang.go.kr/refarm/1028",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 5000000,
+   "desc": "귀농귀촌인 농가주택 수리비 500만원 이내",
+   "url": "https://www.danyang.go.kr/refarm/1028",
+   "year": 2026
+  },
+  "birth": {
+   "first": 10000000,
+   "third": 12400000,
+   "url": "https://www.welfarehello.com/policy/%EC%B6%A9%EB%B6%81-%EB%8B%A8%EC%96%91-%EC%B6%9C%EC%82%B0%EC%9E%A5%EB%A0%A4%EC%A7%80%EC%9B%90%EA%B8%88--f9c637c5-e878-490b-a552-88fa9b3e0804",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 500000,
+   "desc": "1년 이상 타 시군 거주 세대 전입축하금 50만원+종량제봉투 1천L",
+   "url": "https://www.danyang.go.kr/dy21/2008",
+   "year": 2026
+  },
+  "highlight": "중앙선 KTX-이음 단양역 정차",
+  "notes": "출산: 군 자체 첫째 없음, 둘째 월10만×12, 셋째 월20만×12(240만) + 충북 출산육아수당 1,000만(도·시군 분담, 모든 출생아) 포함 합산. 귀농 정착장려금 대상은 2023 이후 전입 65세 이하."
+ },
+ {
+  "sido": "충북",
+  "name": "보은군",
+  "seat": "보은읍",
+  "homepage": "https://www.boeun.go.kr",
+  "youth": {
+   "amount": null,
+   "desc": "청년 소상공인 점포 임차료 월 최대 30만원 지원",
+   "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000126381",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농귀촌인 정착자금·농기계·자재 구입 최대 500만원",
+   "url": "https://hyetaekmoa.com/b/gov24-442000000125",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "청년마을 공유주거(회인면) 임대료 월 10만원",
+   "url": "https://www.boeunpeople.com/news/articleView.html?idxno=80882",
+   "year": 2026
+  },
+  "birth": {
+   "first": 12000000,
+   "third": 20000000,
+   "url": "https://www.gukjenews.com/news/articleView.html?idxno=3498462",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "농어촌 기본소득 시범지역(2026.8~, 월 16만원)",
+  "notes": "전입장려금·이사비(50만) 등 6개 전입사업은 기본소득 시행으로 2026.8.1 이후 전입자 적용 중단(2026.12까지). 출산: 군 첫째 200만/셋째 1,000만(4년 분할)+충북 출산육아수당 1,000만 포함. 기본소득 출처 korea.kr/dailycc."
+ },
+ {
+  "sido": "충북",
+  "name": "영동군",
+  "seat": "영동읍",
+  "homepage": "https://www.yd21.go.kr",
+  "youth": {
+   "amount": 10000000,
+   "desc": "청년부부 정착장려금 5년간 총 1천만원(지역화폐)",
+   "url": "https://www.yd21.go.kr/mayor/html/sub03/0301.html?mode=V&code=kr_02010601&no=49f3ac318d80c3f68ddd2af0fe8f7dbc&group_at=mayor_0301",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 10000000,
+   "desc": "귀농 과수시설 1천만·청년귀농 500만·이사비 50만원",
+   "url": "https://www.yd21.go.kr/kr/html/sub04/0409.html",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 5000000,
+   "desc": "귀농귀촌인 주거환경개선비 500만·주택신축설계비 200만원",
+   "url": "https://www.yd21.go.kr/kr/html/sub04/0409.html",
+   "year": 2026
+  },
+  "birth": {
+   "first": 13500000,
+   "third": 17000000,
+   "url": "https://www.yd21.go.kr/kr/html/sub04/0409.html",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 250000,
+   "desc": "전입세대 25만원 지역화폐+종량제봉투·공공시설 감면",
+   "url": "https://www.yd21.go.kr/kr/html/sub04/0409.html",
+   "year": 2026
+  },
+  "highlight": "전입 대학생 최대 100만원·전입 군인 25만원 지원",
+  "notes": "출산: 군 출산양육지원금 첫째 350만/셋째 700만(분할)+충북 출산육아수당 1,000만 포함. 귀농 과수시설 등은 선정제."
+ },
+ {
+  "sido": "충북",
+  "name": "옥천군",
+  "seat": "옥천읍",
+  "homepage": "https://www.oc.go.kr",
+  "youth": {
+   "amount": 5000000,
+   "desc": "청년 결혼정착금 500만·이사비 50만·월세 월10만원",
+   "url": "https://www.inews365.com/news/article.html?no=934932",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농인 주택수리비·농기계·시설하우스 신축 지원",
+   "url": "https://www.oc.go.kr/www/contents.do?key=4843",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "귀농인의 집 임대(예: 연 임차료 300만원, 1년)",
+   "url": "https://www.oc.go.kr/young/contents.do?key=4879",
+   "year": 2026
+  },
+  "birth": {
+   "first": 10000000,
+   "third": 10000000,
+   "url": "https://dongneyuga.com/benefits-chungbuk-okcheon.html",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "농어촌 기본소득 시범지역(2026~27, 월 15만원)",
+  "notes": "군 자체 출생순위별 장려금 미확인(산후조리비 100만만 확인) → 충북 출산육아수당 1,000만만 반영. 귀농 지원 금액 페이지 접속 실패. 전입장려금 존재(oc.go.kr key=4839)하나 금액 미확인."
+ },
+ {
+  "sido": "충북",
+  "name": "제천시",
+  "seat": "천남동",
+  "homepage": "https://www.jecheon.go.kr",
+  "youth": {
+   "amount": 15000000,
+   "desc": "청년(19~45세) 주택자금 대출이자 연 최대 300만원×5년",
+   "url": "https://www.jcyc.kr/etc_info/85",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 3000000,
+   "desc": "귀농인 영농정착기반 개소당 300만원 범위 50% 지원",
+   "url": "https://www.chungbuk.go.kr/www/contents.do?key=4527",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 38000000,
+   "desc": "출산가정 주택자금 둘째 800만·셋째 최대 3,800만원(대출 가정)",
+   "url": "https://akground.com/government_policy/56951",
+   "year": 2026
+  },
+  "birth": {
+   "first": 10000000,
+   "third": 40000000,
+   "url": "https://akground.com/government_policy/56951",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 500000,
+   "desc": "관내 대학생 전입지원금 최대 50만원",
+   "url": "https://benefitnavi.com/subsidies/440000000195/2025%ED%95%99%EB%85%84%EB%8F%84-%EB%8C%80%ED%95%99%EC%83%9D-%EC%A0%84%EC%9E%85%EC%A7%80%EC%9B%90%EA%B8%88-%EC%A7%80%EC%9B%90/",
+   "year": 2026
+  },
+  "highlight": "귀농귀촌 정착률 56%, KTX-이음 제천역",
+  "notes": "출산: 시 첫째 지원 없음(2022년생~), 셋째 출산자금 3,000만(또는 주택자금 3,800만 택1)+충북 출산육아수당 1,000만. 출처는 민간 정리글(akground). 하이라이트 출처 kmib 2026.5. 일반 전입축하금 미확인."
+ }
+]
