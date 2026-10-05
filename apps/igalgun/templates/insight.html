@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}기본소득 17개 군, 1년 새 인구가 늘었다 · 이사갈군 인사이트{% endblock %}
+{% block desc %}인구감소지역 89곳의 주민등록 인구를 분석한 결과, 농어촌 기본소득 시범지역은 1년간 {{ facts.bi_chg|pct(2) }}, 나머지 지역은 {{ facts.ot_chg|pct(2) }} 변했습니다.{% endblock %}
+{% block path %}/insight/{% endblock %}
+{% block main %}
+<div class="wrap page">
+  <header>
+    <div class="eyebrow">인사이트 · 데이터와 방법</div>
+    <h1>사람이 움직이기 시작한 곳에 비교 도구가 없었다</h1>
+    <p>공공데이터포털 5만 4천여 개 데이터셋의 수요 지표와 여섯 개 후보 분야의 경쟁 현황을 조사해 이 서비스를 만들었습니다. 아래는 그 근거와 계산 방법입니다.</p>
+  </header>
+
+  <div class="grid2">
+    <section class="box">
+      <h2>기본소득 {{ bi_count }}개 군, 1년 새 인구가 늘었다</h2>
+      <p class="muted" style="font-size:13px">89곳의 주민등록 인구 변화율 (2025년 9월 → 2026년 9월, 행정안전부)</p>
+      <div class="big">
+        <div class="s1"><b>{{ facts.bi_chg|pct(2) }}</b><span>기본소득 {{ bi_count }}개 군 합계<br>{{ facts.bi_from|comma }} → {{ facts.bi_to|comma }}명</span></div>
+        <div class="s2"><b>{{ facts.ot_chg|pct(2) }}</b><span>나머지 {{ region_count - bi_count }}곳 합계<br>{{ facts.ot_from|comma }} → {{ facts.ot_to|comma }}명</span></div>
+      </div>
+      <svg id="barchart" role="img" aria-label="89개 지역의 12개월 인구 변화율 막대그래프. 기본소득 지역이 상위에 몰려 있음"></svg>
+      <div class="lgd"><span><i style="background:var(--s1)"></i>농어촌 기본소득 지역 ({{ bi_count }})</span><span><i style="background:var(--s2)"></i>나머지 인구감소지역 ({{ region_count - bi_count }})</span></div>
+      <p class="note">주민등록 기준이라 실제 거주와 다를 수 있고, 시범지역 전입자의 약 절반이 60대 이상이라는 보도가 있습니다. 대구 남구처럼 아파트 입주로 늘어난 곳도 섞여 있습니다.</p>
+    </section>
+    <section class="box">
+      <h2>수요 신호</h2>
+      <ul class="signals">
+        {% for x in signals %}<li><b>{{ x.v }}</b><span>{{ x.t }}<small>{{ x.s }}</small></span></li>{% endfor %}
+      </ul>
+    </section>
+  </div>
+
+  <section class="box" style="margin-top:20px">
+    <h2>후보 분야 비교</h2>
+    <p class="muted" style="font-size:13px;margin-bottom:10px">경쟁 강도와 미충족 수요는 2026년 10월 국내 서비스 조사 결과(1~5점). 공공데이터는 포털에서 해당 주제 데이터셋 수.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>후보 분야</th><th>경쟁 강도</th><th>미충족 수요</th><th>공공데이터</th><th style="text-align:left">이미 있는 서비스</th></tr></thead>
+      <tbody>
+      {% for m in matrix %}
+        <tr class="{{ 'pick' if m.pick else '' }}"><td>{{ m.name }}{% if m.pick %} ← 선택{% endif %}</td><td class="dots">{{ '●' * m.comp }}{{ '○' * (5 - m.comp) }}</td><td class="dots">{{ '●' * m.need }}{{ '○' * (5 - m.need) }}</td><td class="num">{{ m.ds|comma }}개</td><td style="text-align:left;white-space:normal;min-width:240px">{{ m.who }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="prose" style="margin-top:28px">
+    <h2>데이터 출처</h2>
+    <ul>
+      <li>인구·추이: 행정안전부 주민등록 인구통계 (2015~2025 연말, 2025.9~2026.9 월별)</li>
+      <li>연령 구조: 행정안전부 지역별(행정동) 성별 연령별 주민등록 인구수 2026.8 (공공데이터포털 15097972)</li>
+      <li>의료기관: 건강보험심사평가원 전국 병의원 및 약국 현황 2026.6</li>
+      <li>철도: 국가철도공단 철도역 정보, 한국철도공사 KTX 정차역 + 중앙선 의성·영천, 중부내륙선 문경역 보완</li>
+      <li>지정 현황: 행정안전부 인구감소지역 지정 고시, 우대·특별지원 구분</li>
+      <li>농어촌 기본소득: 농림축산식품부 시범사업 발표 (2025.10, 2025.12, 2026.6)</li>
+      <li>지역별 정착 지원: 각 시·군 누리집, 조례, 지역 언론 (지역 페이지의 항목마다 원문 링크)</li>
+      <li>위치: 시·군·구청 좌표 (OpenStreetMap), 시도 경계 (KOSTAT 2013)</li>
+    </ul>
+    <h2>맞춤 점수 계산</h2>
+    <p>여섯 지표를 89곳 안에서 백분위(0~1)로 바꾼 뒤 가중치로 평균하고 0~100점으로 다시 맞춥니다.</p>
+    <ul>
+      <li>인구 활력 = 12개월 변화율 60% + 10년 변화율 40%</li>
+      <li>또래 청년 = 20~39세 비율</li>
+      <li>의료 = 인구 1만 명당 병·의원 60% + 소아청소년과·산부인과 전문의 기관 유무 40%</li>
+      <li>교통 = 가장 가까운 KTX역 직선거리 60% + 서울 직선거리 40%</li>
+      <li>정착 지원 = 조사된 청년·주거·귀농·전입 지원 최대액(상황별 가중) + 기본소득 2년분</li>
+      <li>아이 키우기 = 지자체 출산지원금(첫째+셋째) 50% + 0~9세 비율 25% + 소아·산부인과 전문 기관 25%</li>
+    </ul>
+    <p>조사되지 않은 지원 항목은 중간값으로 둡니다. 지원 금액은 조건이 붙는 최대치이고 일부는 2024~2025년 자료입니다. 인구감소지역은 2026년 10월 재지정이 예정되어 있습니다.</p>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}<script type="module" src="{{ base }}/assets/insight.js"></script>{% endblock %}

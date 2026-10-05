@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>운영 대시보드 · 이사갈군</title>
+<meta name="description" content="인구감소지역 89곳의 인구 추이, 의료·교통, 정착 지원금과 농어촌 기본소득을 공공데이터로 비교해 나에게 맞는 이주 후보지를 찾습니다.">
+<link rel="canonical" href="https://igalgun.vercel.app/admin/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이사갈군">
+<meta property="og:title" content="운영 대시보드 · 이사갈군">
+<meta property="og:description" content="인구감소지역 89곳의 인구 추이, 의료·교통, 정착 지원금과 농어촌 기본소득을 공공데이터로 비교해 나에게 맞는 이주 후보지를 찾습니다.">
+<meta property="og:url" content="https://igalgun.vercel.app/admin/">
+<meta property="og:image" content="https://igalgun.vercel.app/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2F6B3F">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
+<script>window.IGG={base:"",api:"/api"};</script>
+<meta name="robots" content="noindex"></head>
+<body data-page="admin">
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><b>이사갈<i>군</i></b><span>인구감소지역 이주 비교</span></a>
+    <nav class="mainnav" id="mainnav" aria-label="주요 메뉴">
+      <a href="/" >지역 찾기</a>
+      <a href="/report/" >맞춤 리포트</a>
+      <a href="/insight/" >인사이트</a>
+      <a href="/partners/" >지자체 파트너</a>
+    </nav>
+    <button class="btn searchbtn" type="button" id="openSearch" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="t">지역 이름으로 찾기</span><kbd>/</kbd><span class="sr">지역 검색</span></button>
+    <button class="btn ghost menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainnav">메뉴</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap page admin">
+  <header><div class="eyebrow">운영자 전용</div><h1>운영 대시보드</h1>
+    <p>행동 로그를 모아 퍼널, 이탈 지점, 지역 수요, 실험 결과를 보여 주고 다음에 고칠 것을 우선순위대로 뽑습니다.</p></header>
+
+  <form class="box form" id="login" style="max-width:520px">
+    <div class="field"><label for="tok">관리자 토큰</label><input id="tok" type="text" autocomplete="off" spellcheck="false" placeholder="Vercel 환경변수 ADMIN_TOKEN"></div>
+    <button class="btn primary" type="submit">불러오기</button>
+    <p class="formmsg" id="adminMsg" role="status" hidden></p>
+  </form>
+
+  <div id="dash" hidden>
+    <div class="toolrow" style="margin-bottom:14px">
+      <div class="chips" role="group" aria-label="기간">
+        <button class="chip" type="button" data-days="1">오늘</button>
+        <button class="chip" type="button" data-days="7" aria-pressed="true">7일</button>
+        <button class="chip" type="button" data-days="30">30일</button>
+        <button class="chip" type="button" data-days="90">90일</button>
+      </div>
+      <span class="note" id="health" style="margin:0"></span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="대시보드">
+      <button role="tab" type="button" data-tab="overview" aria-selected="true">개요</button>
+      <button role="tab" type="button" data-tab="findings" aria-selected="false">개선 과제</button>
+      <button role="tab" type="button" data-tab="behavior" aria-selected="false">퍼널·행동</button>
+      <button role="tab" type="button" data-tab="regions" aria-selected="false">지역·영업</button>
+      <button role="tab" type="button" data-tab="channels" aria-selected="false">유입·기기</button>
+      <button role="tab" type="button" data-tab="experiments" aria-selected="false">실험</button>
+      <button role="tab" type="button" data-tab="quality" aria-selected="false">품질</button>
+      <button role="tab" type="button" data-tab="export" aria-selected="false">내보내기</button>
+    </div>
+    <section data-panel="overview">
+      <div class="kpis" id="kpis"></div>
+      <div class="rgrid">
+        <div class="box"><h2>일별 방문자</h2><svg id="dailyChart" class="chart" role="img" aria-label="일별 방문자와 전환한 방문자"></svg><div class="lgd"><span><i style="background:var(--rice)"></i>방문자</span><span><i style="background:var(--clay)"></i>전환한 방문자</span></div></div>
+        <div class="box"><h2>퍼널 (고유 방문자)</h2><div id="funnel" class="hbars"></div></div>
+      </div>
+      <div class="box" style="margin-top:16px"><h2>지금 가장 중요한 과제</h2><div id="topFindings"></div></div>
+    </section>
+    <section data-panel="findings" hidden>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center"><button class="btn sm" type="button" id="copyMd">보고서 마크다운 복사</button><span class="note" style="margin:0">주간 보고서는 매주 월요일 9시(KST) 운영자 메일로도 보냅니다.</span></div>
+      <div id="findings"></div>
+    </section>
+    <section data-panel="behavior" hidden>
+      <div class="rgrid">
+        <div class="box"><h2>진단 단계별 도달</h2><div id="quizBars" class="hbars"></div></div>
+        <div class="box"><h2>진단 결과 상황</h2><div id="profileBars" class="hbars"></div></div>
+        <div class="box"><h2>조건·정렬·가중치 사용</h2><div id="uiBars" class="hbars"></div></div>
+        <div class="box"><h2>지역을 연 경로</h2><div id="openBars" class="hbars"></div><h3>순위 구간</h3><div id="rankBars" class="hbars"></div></div>
+        <div class="box"><h2>검색어</h2><div class="tblwrap"><table id="searchTbl"></table></div></div>
+        <div class="box"><h2>스크롤 깊이 (페이지별)</h2><div class="tblwrap"><table id="scrollTbl"></table></div></div>
+      </div>
+    </section>
+    <section data-panel="regions" hidden>
+      <div class="box"><h2>지자체 영업 우선순위</h2><p class="note" style="margin-top:0">점수 = 상담 신청×10 + 상담 열기×3 + 구독×4 + 비교 담기×2 + 조회×0.2</p><div class="tblwrap"><table id="salesTbl"></table></div></div>
+      <div class="box" style="margin-top:16px"><h2>지역별 행동</h2><div class="tblwrap"><table id="regionTbl"></table></div></div>
+    </section>
+    <section data-panel="channels" hidden>
+      <div class="rgrid">
+        <div class="box"><h2>유입 경로</h2><div class="tblwrap"><table id="srcTbl"></table></div></div>
+        <div class="box"><h2>기기</h2><div class="tblwrap"><table id="devTbl"></table></div></div>
+      </div>
+    </section>
+    <section data-panel="experiments" hidden><div id="expBox"></div></section>
+    <section data-panel="quality" hidden>
+      <div class="rgrid">
+        <div class="box"><h2>웹 성능 (p75)</h2><div class="tblwrap"><table id="vitalTbl"></table></div><p class="note">기준: LCP 2,500ms, INP 200ms, CLS 0.1 이하</p></div>
+        <div class="box"><h2>스크립트 오류</h2><div class="tblwrap"><table id="errTbl"></table></div><h3>신청서 오류</h3><div class="tblwrap"><table id="formErrTbl"></table></div></div>
+      </div>
+    </section>
+    <section data-panel="export" hidden>
+      <div class="box">
+        <h2>내려받기</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn sm" type="button" data-export="leads">상담 신청 CSV</button>
+          <button class="btn sm" type="button" data-export="partners">파트너 문의 CSV</button>
+          <button class="btn sm" type="button" data-export="subscribers">구독자 CSV</button>
+          <button class="btn sm" type="button" data-export="orders">결제 CSV</button>
+        </div>
+        <h3>원본 행동 로그 (NDJSON)</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <label class="sr" for="rawDay">날짜</label><input id="rawDay" type="text" placeholder="YYYY-MM-DD" style="width:140px">
+          <button class="btn sm" type="button" id="rawBtn">원본 로그 받기</button>
+        </div>
+        <p class="note">깊은 분석은 <code>node scripts/analyze.mjs igalgun-events-*.ndjson</code> 으로 같은 개선 과제 보고서를 로컬에서 만듭니다.</p>
+      </div>
+    </section>
+  </div>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <b>이사갈군</b> · 데이터 기준 2026-10-05 · 행정안전부, 건강보험심사평가원, 국가철도공단, 농림축산식품부, 각 시·군 공고<br>
+      지원 금액은 조건이 붙는 최대치입니다. 신청 전 해당 시·군에 확인하세요.
+    </div>
+    <nav aria-label="사이트 정보">
+      <a href="/insight/">데이터와 방법</a>
+      <a href="/partners/">지자체 파트너</a>
+      <a href="/privacy/">개인정보처리방침</a>
+      <a href="/terms/">이용약관</a>
+      <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정보 정정 요청</a>
+      <button class="btn ghost sm" type="button" id="optOut" style="min-height:0;padding:0;font-weight:400;font-size:13px;text-decoration:underline">통계 수집 거부</button>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="searchDlg" aria-label="지역 검색">
+  <div class="palette">
+    <label class="sr" for="searchInput">지역 이름</label>
+    <input id="searchInput" type="text" placeholder="예: 정선, 옥천, 남해" autocomplete="off" role="combobox" aria-controls="searchList" aria-expanded="true">
+    <ul id="searchList" role="listbox"></ul>
+    <div class="hint">↑↓로 이동, Enter로 열기, Esc로 닫기</div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" popover="manual" hidden></div>
+<script type="module" src="/assets/common.js"></script>
+<script type="module" src="/assets/admin.js"></script></body>
+</html>

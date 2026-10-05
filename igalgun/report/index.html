@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>맞춤 이주 리포트 · 이사갈군</title>
+<meta name="description" content="후보지 1~3곳의 정착 지원금 합계, 신청 순서와 일정, 군청에 물어볼 질문을 한 장으로 정리한 맞춤 이주 리포트.">
+<link rel="canonical" href="https://hello22433.github.io/igalgun/report/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이사갈군">
+<meta property="og:title" content="맞춤 이주 리포트 · 이사갈군">
+<meta property="og:description" content="후보지 1~3곳의 정착 지원금 합계, 신청 순서와 일정, 군청에 물어볼 질문을 한 장으로 정리한 맞춤 이주 리포트.">
+<meta property="og:url" content="https://hello22433.github.io/igalgun/report/">
+<meta property="og:image" content="https://hello22433.github.io/igalgun/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2F6B3F">
+<link rel="icon" href="/igalgun/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/igalgun/assets/app.css">
+<script>window.IGG={base:"/igalgun",api:null};</script>
+</head>
+<body data-page="report">
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/igalgun/"><b>이사갈<i>군</i></b><span>인구감소지역 이주 비교</span></a>
+    <nav class="mainnav" id="mainnav" aria-label="주요 메뉴">
+      <a href="/igalgun/" >지역 찾기</a>
+      <a href="/igalgun/report/" aria-current="page">맞춤 리포트</a>
+      <a href="/igalgun/insight/" >인사이트</a>
+      <a href="/igalgun/partners/" >지자체 파트너</a>
+    </nav>
+    <button class="btn searchbtn" type="button" id="openSearch" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="t">지역 이름으로 찾기</span><kbd>/</kbd><span class="sr">지역 검색</span></button>
+    <button class="btn ghost menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainnav">메뉴</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap page">
+  <header>
+    <div class="eyebrow">맞춤 이주 리포트</div>
+    <h1>후보지를 정했다면, 다음은 신청 순서입니다</h1>
+    <p>지원금은 대부분 전입 시점과 거주 기간 조건이 걸려 있어 순서를 틀리면 못 받습니다. 고른 지역의 지원 내역, 전입 전후 일정, 군청에 물어볼 질문을 한 장으로 정리해 드립니다.</p>
+  </header>
+
+  <div class="grid2">
+    <div>
+      <div class="steps" aria-label="진행 단계"><span class="on" id="st1">1 지역 고르기</span><span id="st2">2 무료 미리보기</span><span id="st3">3 결제하고 전체 보기</span></div>
+      <div class="box">
+        <h2>지역과 상황</h2>
+        <div class="form">
+          <div class="field">
+            <span class="lbl" id="profLbl">나의 상황</span>
+            <div class="chips" id="repProfiles" role="group" aria-labelledby="profLbl"></div>
+          </div>
+          <div class="field">
+            <label for="repSearch">지역 (최대 3곳)</label>
+            <input id="repSearch" type="text" list="repList" placeholder="지역 이름을 입력하고 Enter" autocomplete="off">
+            <datalist id="repList"></datalist>
+            <div class="chips" id="repChosen" style="margin-top:6px"></div>
+            <small>지역 찾기 화면의 비교함에서 넘어오면 자동으로 채워집니다.</small>
+          </div>
+          <button class="btn primary" type="button" id="previewBtn">무료 미리보기</button>
+        </div>
+      </div>
+    </div>
+    <aside class="box">
+      <h2>리포트에 들어가는 것</h2>
+      <ul class="prose" style="padding-left:18px;margin:0">
+        <li>지역별 정착 지원 합계 추정 (기본소득 2년분 포함)과 항목별 출처</li>
+        <li>이주 3개월 전부터 전입 후까지 신청 일정</li>
+        <li>내 상황 기준 강점과 주의할 점, 89곳 중 순위</li>
+        <li>군청 상담 때 그대로 물어볼 질문 목록</li>
+        <li>인쇄·PDF 저장용 한 장 레이아웃</li>
+      </ul>
+      <div class="plans" style="grid-template-columns:1fr 1fr;margin-top:14px">
+        <div class="plan"><h3>1곳</h3><div class="price">9,900<small>원</small></div></div>
+        <div class="plan feat"><h3>2~3곳 비교</h3><div class="price">19,900<small>원</small></div></div>
+      </div>
+      <p class="note">결제 후 받은 링크로 언제든 다시 볼 수 있습니다. 환불 기준은 <a href="/igalgun/terms/">이용약관</a>을 따릅니다.</p>
+      <p style="margin-top:10px"><button class="btn sm" type="button" id="sampleBtn">예시 리포트 보기</button></p>
+    </aside>
+  </div>
+
+  <div id="repOut" style="margin-top:24px"></div>
+
+  <div class="box noprint" id="payBox" hidden style="margin-top:16px">
+    <h2>결제하고 전체 리포트 보기</h2>
+    <div class="paybox">
+      <div id="payment-method"></div>
+      <div id="agreement"></div>
+      <button class="btn clay lg" type="button" id="payBtn">결제하기</button>
+      <p class="formmsg" id="payMsg" role="status" hidden></p>
+    </div>
+  </div>
+  <div class="box noprint" id="waitBox" hidden style="margin-top:16px">
+    <h2>결제는 곧 열립니다</h2>
+    <p class="muted" style="margin-bottom:12px">결제가 열리면 메일로 알려 드립니다. 그동안 위의 무료 미리보기와 예시 리포트를 이용하세요.</p>
+    <form class="form" data-endpoint="subscribe" data-kind="subscribe" novalidate>
+  <input type="hidden" name="regions" value="">
+  <input type="hidden" name="topic" value="report_launch">
+  <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <div class="field"><label for="wait-email-all">이메일</label><input id="wait-email-all" name="email" type="email" required placeholder="name@example.com" autocomplete="email"></div>
+  <label class="check"><input type="checkbox" name="consent" required> <span><b>[필수]</b> 만 14세 이상이며, 알림 발송을 위한 이메일 수집·이용에 동의합니다. 보유 기간은 구독 해지 시까지입니다.</span></label>
+  <button class="btn" type="submit">출시 알림 받기</button>
+  <p class="formmsg" role="status" hidden></p>
+</form>
+
+  </div>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <b>이사갈군</b> · 데이터 기준 2026-10-05 · 행정안전부, 건강보험심사평가원, 국가철도공단, 농림축산식품부, 각 시·군 공고<br>
+      지원 금액은 조건이 붙는 최대치입니다. 신청 전 해당 시·군에 확인하세요.
+    </div>
+    <nav aria-label="사이트 정보">
+      <a href="/igalgun/insight/">데이터와 방법</a>
+      <a href="/igalgun/partners/">지자체 파트너</a>
+      <a href="/igalgun/privacy/">개인정보처리방침</a>
+      <a href="/igalgun/terms/">이용약관</a>
+      <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정보 정정 요청</a>
+      <button class="btn ghost sm" type="button" id="optOut" style="min-height:0;padding:0;font-weight:400;font-size:13px;text-decoration:underline">통계 수집 거부</button>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="searchDlg" aria-label="지역 검색">
+  <div class="palette">
+    <label class="sr" for="searchInput">지역 이름</label>
+    <input id="searchInput" type="text" placeholder="예: 정선, 옥천, 남해" autocomplete="off" role="combobox" aria-controls="searchList" aria-expanded="true">
+    <ul id="searchList" role="listbox"></ul>
+    <div class="hint">↑↓로 이동, Enter로 열기, Esc로 닫기</div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" popover="manual" hidden></div>
+<script type="module" src="/igalgun/assets/common.js"></script>
+<script type="module" src="/igalgun/assets/report.js"></script></body>
+</html>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}개인정보처리방침 · 이사갈군{% endblock %}
+{% block path %}/privacy/{% endblock %}
+{% block main %}
+<div class="wrap page">
+  <header><div class="eyebrow">시행일 {{ as_of }}</div><h1>개인정보처리방침</h1>
+  <p>이사갈군(이하 "서비스")은 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고, 관련 고충을 신속하게 처리하기 위해 다음과 같이 처리방침을 둡니다.</p></header>
+  <div class="prose">
+    <h2>1. 처리 목적과 항목, 보유 기간</h2>
+    <div class="tblwrap"><table>
+      <thead><tr><th>구분</th><th style="text-align:left">항목</th><th style="text-align:left">목적</th><th style="text-align:left">보유 기간</th></tr></thead>
+      <tbody>
+        <tr><td>정착 상담 신청</td><td style="text-align:left">연락처(필수), 이름·이주 목적·시기·가구 형태·문의 내용(선택), 관심 지역</td><td style="text-align:left">상담 연결과 회신</td><td style="text-align:left">접수일부터 1년 또는 삭제 요청 시</td></tr>
+        <tr><td>정책 알림 구독</td><td style="text-align:left">이메일, 관심 지역</td><td style="text-align:left">정책 변경·서비스 출시 알림 발송</td><td style="text-align:left">구독 해지 시</td></tr>
+        <tr><td>파트너 문의</td><td style="text-align:left">기관명, 부서, 담당자 이름, 연락처</td><td style="text-align:left">도입 상담과 견적 안내</td><td style="text-align:left">1년</td></tr>
+        <tr><td>리포트 결제</td><td style="text-align:left">주문번호, 결제수단 종류, 승인 일시 (카드번호 등은 결제대행사가 처리)</td><td style="text-align:left">리포트 제공, 환불, 세무 처리</td><td style="text-align:left">「전자상거래법」에 따라 5년</td></tr>
+        <tr><td>이용 행동 로그</td><td style="text-align:left">브라우저에 저장한 무작위 익명 ID, 세션 ID, 화면 이동·클릭·검색어(지역명)·진단 선택 등 서비스 안 행동, 기기 종류, 유입 경로, 페이지 성능. 이름·연락처·이메일은 포함하지 않음</td><td style="text-align:left">서비스 개선, 지역별 관심도 집계, A/B 실험</td><td style="text-align:left">원본 90일, 집계 400일</td></tr>
+        <tr><td>남용 방지</td><td style="text-align:left">접속 IP의 일 단위 해시</td><td style="text-align:left">반복 신청·자동화 차단</td><td style="text-align:left">당일</td></tr>
+      </tbody>
+    </table></div>
+    <p>서비스는 만 14세 미만 아동의 개인정보를 받지 않습니다. 주민등록번호 등 고유식별정보는 수집하지 않습니다.</p>
+
+    <h2>2. 제3자 제공</h2>
+    <p>이용자가 상담 신청서에서 [선택] 항목에 별도로 동의한 경우에만, 신청서에 표시된 해당 시·군청의 귀농귀촌·인구정책 담당 부서에 상담 신청 내용을 제공합니다. 제공받는 자는 정착 지원 상담 목적으로만 이용하며 상담 종료 후 1년간 보유합니다. 동의하지 않아도 서비스가 직접 정책 정보를 회신합니다.</p>
+
+    <h2>3. 처리 위탁</h2>
+    <ul>
+      <li>Vercel Inc.: 웹 호스팅과 서버 운영</li>
+      <li>Upstash Inc.: 신청·구독 데이터 저장</li>
+      <li>(주)토스페이먼츠: 결제 처리</li>
+      <li>Resend: 운영자 알림 메일 발송 (이용자 연락처는 메일에 포함하지 않음)</li>
+    </ul>
+    <p>위 업체 중 일부는 데이터를 국외(미국 등) 서버에서 처리할 수 있습니다.</p>
+
+    <h2>4. 이용 행동 로그 수집 거부</h2>
+    <p>사이트 하단의 "통계 수집 거부"를 누르거나 브라우저의 Do Not Track·Global Privacy Control을 켜면 행동 로그를 보내지 않습니다. 거부해도 모든 기능을 그대로 쓸 수 있습니다.</p>
+
+    <h2>5. 파기</h2>
+    <p>보유 기간이 끝나거나 목적을 달성한 정보는 지체 없이 저장소에서 삭제합니다.</p>
+
+    <h2>6. 이용자의 권리</h2>
+    <p>이용자는 언제든지 자신의 개인정보 열람, 정정, 삭제, 처리 정지를 요청할 수 있습니다. 아래 문의처로 요청하면 10일 안에 처리합니다.</p>
+
+    <h2>7. 안전성 확보 조치</h2>
+    <p>저장소 접근은 관리자 토큰으로 제한하고, 전송 구간은 HTTPS로 암호화합니다. 관리자 내보내기는 기록을 남깁니다.</p>
+
+    <h2>8. 개인정보 보호책임자와 문의</h2>
+    <p>보호책임자: 이사갈군 운영자 · 문의: <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">GitHub 이슈</a> 또는 사이트에 안내된 이메일. 개인정보 침해 신고는 개인정보침해신고센터(국번 없이 118)에도 할 수 있습니다.</p>
+  </div>
+</div>
+{% endblock %}

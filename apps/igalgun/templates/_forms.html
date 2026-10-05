@@ -1,0 +1,40 @@
+{# 지역 상세(페이지·서랍)에서 쓰는 폼 매크로 #}
+{% macro lead_form(r) %}
+<form class="form" data-endpoint="lead" data-kind="lead" novalidate>
+  <input type="hidden" name="regions" value="{{ r.code }}">
+  <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <div class="row2">
+    <div class="field"><label for="lead-name-{{ r.code }}">이름 <small>(선택)</small></label><input id="lead-name-{{ r.code }}" name="name" type="text" maxlength="40" autocomplete="name"></div>
+    <div class="field"><label for="lead-contact-{{ r.code }}">연락처</label><input id="lead-contact-{{ r.code }}" name="contact" type="text" required maxlength="120" placeholder="휴대전화 또는 이메일" autocomplete="email"></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="lead-purpose-{{ r.code }}">이주 목적</label>
+      <select id="lead-purpose-{{ r.code }}" name="purpose"><option value="">선택</option><option>원격근무·이직</option><option>귀농</option><option>귀촌·전원생활</option><option>은퇴</option><option>창업</option><option>기타</option></select></div>
+    <div class="field"><label for="lead-when-{{ r.code }}">이주 시기</label>
+      <select id="lead-when-{{ r.code }}" name="when"><option value="">선택</option><option>3개월 이내</option><option>1년 이내</option><option>1~3년</option><option>정해지지 않음</option></select></div>
+  </div>
+  <div class="field"><label for="lead-household-{{ r.code }}">가구 형태</label>
+    <select id="lead-household-{{ r.code }}" name="household"><option value="">선택</option><option>1인</option><option>부부</option><option>자녀 있는 가구</option><option>부모님과 함께</option><option>기타</option></select></div>
+  <div class="field"><label for="lead-msg-{{ r.code }}">궁금한 점 <small>(선택)</small></label><textarea id="lead-msg-{{ r.code }}" name="message" maxlength="1000" placeholder="예: 청년 월세 지원과 빈집 리모델링을 같이 받을 수 있나요?"></textarea></div>
+  <div class="consent">
+    <label class="check"><input type="checkbox" name="consentCollect" required> <span><b>[필수]</b> 만 14세 이상이며, 상담 연결을 위한 개인정보 수집·이용에 동의합니다.
+      <details><summary>자세히</summary>항목: 이름(선택), 연락처, 이주 목적·시기·가구 형태, 문의 내용 / 목적: 정착 상담 연결과 회신 / 보유: 접수일로부터 1년 또는 삭제 요청 시까지. 동의하지 않으면 상담 신청을 할 수 없습니다.</details></span></label>
+    <label class="check"><input type="checkbox" name="consentThirdParty"> <span><b>[선택]</b> {{ r.sido }} {{ r.name }} 귀농귀촌·인구정책 담당 부서에 위 정보를 제공하는 데 동의합니다.
+      <details><summary>자세히</summary>제공받는 자: {{ r.name }}청 담당 부서 / 목적: 정착 지원 상담 / 항목: 위와 같음 / 보유: 상담 종료 후 1년. 동의하지 않아도 이사갈군이 직접 정책 정보를 회신합니다.</details></span></label>
+  </div>
+  <button class="btn primary" type="submit">상담 신청하기</button>
+  <p class="formmsg" role="status" hidden></p>
+</form>
+{% endmacro %}
+
+{% macro subscribe_form(code, topic='policy', label='알림 받기', idp='sub') %}
+<form class="form" data-endpoint="subscribe" data-kind="subscribe" novalidate>
+  <input type="hidden" name="regions" value="{{ code }}">
+  <input type="hidden" name="topic" value="{{ topic }}">
+  <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <div class="field"><label for="{{ idp }}-email-{{ code or 'all' }}">이메일</label><input id="{{ idp }}-email-{{ code or 'all' }}" name="email" type="email" required placeholder="name@example.com" autocomplete="email"></div>
+  <label class="check"><input type="checkbox" name="consent" required> <span><b>[필수]</b> 만 14세 이상이며, 알림 발송을 위한 이메일 수집·이용에 동의합니다. 보유 기간은 구독 해지 시까지입니다.</span></label>
+  <button class="btn" type="submit">{{ label }}</button>
+  <p class="formmsg" role="status" hidden></p>
+</form>
+{% endmacro %}

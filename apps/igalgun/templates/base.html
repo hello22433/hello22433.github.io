@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}이사갈군 · 인구감소지역 이주 비교{% endblock %}</title>
+<meta name="description" content="{% block desc %}인구감소지역 89곳의 인구 추이, 의료·교통, 정착 지원금과 농어촌 기본소득을 공공데이터로 비교해 나에게 맞는 이주 후보지를 찾습니다.{% endblock %}">
+<link rel="canonical" href="{{ site }}{% block path %}{% endblock %}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이사갈군">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.desc() }}">
+<meta property="og:url" content="{{ site }}{{ self.path() }}">
+<meta property="og:image" content="{{ site }}/assets/og.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2F6B3F">
+<link rel="icon" href="{{ base }}/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{{ base }}/assets/app.css">
+<script>window.IGG={base:{{ base|tojson }},api:{{ api|tojson }}};</script>
+{% block head %}{% endblock %}
+</head>
+<body data-page="{{ page }}">
+<a class="sr" href="#main">본문으로 건너뛰기</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="{{ base }}/"><b>이사갈<i>군</i></b><span>인구감소지역 이주 비교</span></a>
+    <nav class="mainnav" id="mainnav" aria-label="주요 메뉴">
+      <a href="{{ base }}/" {% if page == 'home' %}aria-current="page"{% endif %}>지역 찾기</a>
+      <a href="{{ base }}/report/" {% if page == 'report' %}aria-current="page"{% endif %}>맞춤 리포트</a>
+      <a href="{{ base }}/insight/" {% if page == 'insight' %}aria-current="page"{% endif %}>인사이트</a>
+      <a href="{{ base }}/partners/" {% if page == 'partners' %}aria-current="page"{% endif %}>지자체 파트너</a>
+    </nav>
+    <button class="btn searchbtn" type="button" id="openSearch" aria-haspopup="dialog"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="t">지역 이름으로 찾기</span><kbd>/</kbd><span class="sr">지역 검색</span></button>
+    <button class="btn ghost menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainnav">메뉴</button>
+  </div>
+</header>
+
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <b>이사갈군</b> · 데이터 기준 {{ as_of }} · 행정안전부, 건강보험심사평가원, 국가철도공단, 농림축산식품부, 각 시·군 공고<br>
+      지원 금액은 조건이 붙는 최대치입니다. 신청 전 해당 시·군에 확인하세요.
+    </div>
+    <nav aria-label="사이트 정보">
+      <a href="{{ base }}/insight/">데이터와 방법</a>
+      <a href="{{ base }}/partners/">지자체 파트너</a>
+      <a href="{{ base }}/privacy/">개인정보처리방침</a>
+      <a href="{{ base }}/terms/">이용약관</a>
+      <a href="https://github.com/hello22433/hello22433.github.io/issues" rel="noopener" target="_blank">정보 정정 요청</a>
+      <button class="btn ghost sm" type="button" id="optOut" style="min-height:0;padding:0;font-weight:400;font-size:13px;text-decoration:underline">통계 수집 거부</button>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="searchDlg" aria-label="지역 검색">
+  <div class="palette">
+    <label class="sr" for="searchInput">지역 이름</label>
+    <input id="searchInput" type="text" placeholder="예: 정선, 옥천, 남해" autocomplete="off" role="combobox" aria-controls="searchList" aria-expanded="true">
+    <ul id="searchList" role="listbox"></ul>
+    <div class="hint">↑↓로 이동, Enter로 열기, Esc로 닫기</div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" popover="manual" hidden></div>
+<script type="module" src="{{ base }}/assets/common.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
