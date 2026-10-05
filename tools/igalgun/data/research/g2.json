@@ -1,0 +1,373 @@
+[
+ {
+  "sido": "강원",
+  "name": "고성군",
+  "seat": "간성읍",
+  "homepage": "https://www.gwgs.go.kr",
+  "youth": {
+   "amount": 3600000,
+   "desc": "정규직 취업 청년(19~39세) 취업수당 월 30만원×12개월",
+   "url": "https://www.gwgs.go.kr/kor/sub01_0104.do",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 4000000,
+   "desc": "신규농업인·귀농인 현장실습 연수생 월 80만원(5개월 이내)",
+   "url": "https://www.gwgs.go.kr/kor/sub01_0502.do",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 2400000,
+   "desc": "고성형 청년월세 월 최대 20만원, 최대 1년(19~39세 무주택)",
+   "url": "https://www.gwgs.go.kr/kor/sub01_0104.do",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1400000,
+   "third": 4600000,
+   "url": "https://lifewithbaby.co.kr/money/98/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 200000,
+   "desc": "전입 시 고성쌀 10kg, 1년 실거주 후 고성사랑상품권 20만원",
+   "url": "https://www.gwgs.go.kr/kor/sub01_0501.do",
+   "year": 2026
+  },
+  "highlight": "제대 직업군인·국적취득 전입세대 120만원 정착지원",
+  "notes": "전입지원 페이지 시행일 2023.5.26(최종수정 2025-02). 청년 창업지원 팀당 연 1,500만원(최대 2년)도 있음. 귀농 융자(창업 3억·주택 7,500만원)는 국비 융자."
+ },
+ {
+  "sido": "강원",
+  "name": "삼척시",
+  "seat": "성내동",
+  "homepage": "https://www.samcheok.go.kr",
+  "youth": null,
+  "farm": null,
+  "housing": null,
+  "birth": {
+   "first": 2000000,
+   "third": 4000000,
+   "url": "https://lifewithbaby.co.kr/money/100/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "출산장려금 2년 거주 유지 시 100% 추가 지급",
+  "notes": "삼척시청 누리집이 WAF로 접근 차단되어 청년·귀농·주거·전입 확인 불가. 출산장려금 기본 첫째 100만/셋째 200만원, 2년 이상 주민등록 유지 시 동액 추가(합계 200만/400만원) – lifewithbaby 기준."
+ },
+ {
+  "sido": "강원",
+  "name": "양구군",
+  "seat": "양구읍",
+  "homepage": "https://www.yanggu.go.kr",
+  "youth": null,
+  "farm": {
+   "amount": 2400000,
+   "desc": "귀농 교육훈련비 가구당 월 30만원×8개월",
+   "url": "https://www.yanggu.go.kr/user_sub?gfnc=www&mu_idx=340",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 3000000,
+   "desc": "청년부부 주택구입·전세대출 이자 50%, 연 100만원×3년",
+   "url": "https://www.yanggu.go.kr/user_sub?gfnc=www&mu_idx=338",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 3000000,
+   "url": "https://lifewithbaby.co.kr/money/102/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 300000,
+   "desc": "전입지원금 1인 30만원(양구사랑상품권)+특산품 교환권 5만원",
+   "url": "https://www.yanggu.go.kr/user_sub?gfnc=www&mu_idx=338",
+   "year": 2026
+  },
+  "highlight": "전입 1인 30만원·신혼부부 축하금 최대 50만원",
+  "notes": "청년 전용 정착지원은 확인 못함. 귀농 교육훈련비 연도 표기 불명확."
+ },
+ {
+  "sido": "강원",
+  "name": "양양군",
+  "seat": "양양읍",
+  "homepage": "https://www.yangyang.go.kr",
+  "youth": {
+   "amount": 3000000,
+   "desc": "청년취업쿠폰 월 50만원×6개월",
+   "url": "https://www.yangyang.go.kr/gw/portal/yyc_partinfo_youth_support",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": 4800000,
+   "desc": "청년월세 월 최대 20만원, 24개월",
+   "url": "https://www.yangyang.go.kr/gw/portal/yyc_partinfo_youth_support",
+   "year": 2026
+  },
+  "birth": {
+   "first": 2200000,
+   "third": 8200000,
+   "url": "https://lifewithbaby.co.kr/money/103/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "출산축하금 100만원+셋째 2년간 월 30만원",
+  "notes": "귀농귀촌 지원정책 페이지가 404. 청년월세는 국가 사업 성격. 출산: 축하금 100만원+장려금(첫째 월10만×12, 셋째 월30만×24)."
+ },
+ {
+  "sido": "강원",
+  "name": "영월군",
+  "seat": "영월읍",
+  "homepage": "https://www.yw.go.kr",
+  "youth": {
+   "amount": 2400000,
+   "desc": "관내 무주택 월세 청년 주거비 월 20만원×12개월",
+   "url": "https://www.yw.go.kr/www/contents.do?key=1316",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 10000000,
+   "desc": "귀농인 영농정착 지원 개소당 200만~1,000만원",
+   "url": "https://www.yw.go.kr/www/contents.do?key=1216",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "귀농 주택구입 융자 7,500만원 한도",
+   "url": "https://www.yw.go.kr/www/contents.do?key=1216",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 10000000,
+   "url": "https://lifewithbaby.co.kr/money/104/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 100000,
+   "desc": "타지역 6개월 이상 거주 후 전입 시 1인 10만원(1회)",
+   "url": "https://www.yw.go.kr/www/contents.do?key=1217",
+   "year": 2026
+  },
+  "highlight": "농촌유학 메카, 귀농귀촌·농촌유학 투트랙",
+  "notes": "청년 창업(청년 메이커) 최대 5,000만원, 결혼비용 300만원도 있음. 주거는 융자라 amount 비움. 연도 표기 없음(2026 현행 페이지)."
+ },
+ {
+  "sido": "강원",
+  "name": "정선군",
+  "seat": "정선읍",
+  "homepage": "https://www.jeongseon.go.kr",
+  "youth": {
+   "amount": null,
+   "desc": "만19~34세 무주택 청년 월세 최대 2년 지원",
+   "url": "https://www.jeongseon.go.kr/portal/partinfo/lifewelfare/populationpolicy/dwelling",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 10000000,
+   "desc": "귀농인 정착지원(영농기반·주택수리) 농가당 1천만원 한도",
+   "url": "https://www.jeongseon.go.kr/portal/partinfo/lifewelfare/populationpolicy/returnToFarm",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "정선형 청년마을 북평면 청년 임대주택 10동(2027 입주)",
+   "url": "https://www.jeongseon.go.kr/portal/partinfo/lifewelfare/populationpolicy/dwelling",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1200000,
+   "third": 14400000,
+   "url": "https://lifewithbaby.co.kr/money/107/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 50000,
+   "desc": "전입 1인 상품권 5만원+종량제봉투 20매(기본소득 기간 제외)",
+   "url": "https://www.jeongseon.go.kr/portal/partinfo/lifewelfare/populationpolicy/movein",
+   "year": 2026
+  },
+  "highlight": "농어촌 기본소득 시범지역(월 15만원, 2026~27)",
+  "notes": "2026~2027 기본소득 기간 전입자는 전입세대 지원 제외(기본소득은 전입 30일 후 신청 가능). 청년월세 금액은 페이지에 미표기. 결혼장려금 500만원. 출산: 양육장려급여 첫째 월10만×12, 셋째 월10만×12년."
+ },
+ {
+  "sido": "강원",
+  "name": "철원군",
+  "seat": "갈말읍",
+  "homepage": "https://www.cwg.go.kr",
+  "youth": null,
+  "farm": null,
+  "housing": null,
+  "birth": {
+   "first": 700000,
+   "third": 2500000,
+   "url": "https://lifewithbaby.co.kr/money/108/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 100000,
+   "desc": "전입 1인 현금 10만원+쌀/국수·종량제봉투 20매",
+   "url": "https://www.servedream.com/service/430100000002",
+   "year": 2026
+  },
+  "highlight": "전입 1인 현금 10만원+생필품 지원",
+  "notes": "철원군청 누리집 접속 불가(연결 차단)로 청년·귀농·주거 확인 못함. 전입지원은 보조금24 미러(servedream) 기준. 출산: 장려금+첫돌축하금."
+ },
+ {
+  "sido": "강원",
+  "name": "태백시",
+  "seat": "황지동",
+  "homepage": "https://www.taebaek.go.kr",
+  "youth": null,
+  "farm": null,
+  "housing": null,
+  "birth": {
+   "first": 500000,
+   "third": 3600000,
+   "url": "https://lifewithbaby.co.kr/money/110/1",
+   "year": 2026
+  },
+  "transfer": null,
+  "highlight": "청년정책 기본계획: 통합 공공임대주택·청년 전세이자 지원",
+  "notes": "태백시 청년정책 페이지(key=1596)에 사업명만 있고 금액 없음. 귀농·전입 지원 금액 확인 못함. 출산: 셋째 월30만×12."
+ },
+ {
+  "sido": "강원",
+  "name": "평창군",
+  "seat": "평창읍",
+  "homepage": "https://www.pc.go.kr",
+  "youth": null,
+  "farm": {
+   "amount": 15000000,
+   "desc": "귀농 선도농가 소득모델 시설·장비 50% 보조(1,500만원 한도)",
+   "url": "https://www.pc.go.kr/portal/part/part-city/part-city-farming",
+   "year": 2026
+  },
+  "housing": {
+   "amount": 5000000,
+   "desc": "귀농인 노후주택 집수리 80% 보조(500만원 한도)",
+   "url": "https://www.pc.go.kr/portal/part/part-city/part-city-farming",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 3000000,
+   "url": "https://lifewithbaby.co.kr/money/111/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 300000,
+   "desc": "전입 6개월 후 상품권 30만원+종량제봉투·영화관람권",
+   "url": "https://www.servedream.com/service/428100000008",
+   "year": 2026
+  },
+  "highlight": "귀농인 집수리 80%·기초영농시설 500만원 지원",
+  "notes": "평창 귀농 페이지 최종수정 2025-12(2025 가이드북 기준), 연도 2026 현행으로 표기. 청년 지원 확인 못함."
+ },
+ {
+  "sido": "강원",
+  "name": "홍천군",
+  "seat": "홍천읍",
+  "homepage": "https://www.hongcheon.go.kr",
+  "youth": {
+   "amount": 4800000,
+   "desc": "청년주인수당 월 20만원×24개월(관내 6개월 이상 근로)",
+   "url": "https://www.hongcheon.go.kr/www/contents.do?key=413",
+   "year": 2026
+  },
+  "farm": {
+   "amount": 5000000,
+   "desc": "귀농 새내기 정착 지원 개소당 500만원(보조 80%)",
+   "url": "https://www.hongcheon.go.kr/www/contents.do?key=413",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "강원형 공공임대(홍천북방) 청년·신혼 80세대 2027 준공",
+   "url": "https://www.hongcheon.go.kr/www/contents.do?key=2734",
+   "year": 2026
+  },
+  "birth": {
+   "first": 2000000,
+   "third": 6000000,
+   "url": "https://lifewithbaby.co.kr/money/112/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": 50000,
+   "desc": "1년 이상 타지역 거주 후 전입 시 전입축하금 5만원+특산품",
+   "url": "https://www.hongcheon.go.kr/www/contents.do?key=413",
+   "year": 2026
+  },
+  "highlight": "체류형 농업창업지원센터 39세대 운영",
+  "notes": "출산장려금 첫째 200/둘째 300/셋째 600만원은 군 공식 페이지와 일치."
+ },
+ {
+  "sido": "강원",
+  "name": "화천군",
+  "seat": "화천읍",
+  "homepage": "https://www.ihc.go.kr",
+  "youth": {
+   "amount": 2400000,
+   "desc": "청년월세 월 20만원 한도, 최대 12개월(19~34세)",
+   "url": "https://www.ihc.go.kr/www/contents.do?key=2512",
+   "year": 2026
+  },
+  "farm": {
+   "amount": null,
+   "desc": "귀농 농업창업 3억·주택 7,500만원 융자(연 2%)",
+   "url": "https://www.ihc.go.kr/www/contents.do?key=328",
+   "year": 2026
+  },
+  "housing": {
+   "amount": null,
+   "desc": "신혼부부 주거자금 대출이자 지원(잔액 1억원 한도)",
+   "url": "https://www.ihc.go.kr/www/contents.do?key=2512",
+   "year": 2026
+  },
+  "birth": null,
+  "transfer": {
+   "amount": 200000,
+   "desc": "타지역 전입 후 1년 이상 실거주 시 1인 20만원",
+   "url": "https://www.servedream.com/service/431100000003",
+   "year": 2026
+  },
+  "highlight": "농어촌 기본소득 시범지역 추가 선정(2026.6, 월 15만원)",
+  "notes": "lifewithbaby는 화천군 자체 현금 출산장려금이 없다고 표기(기저귀 지원 등만) – 미확인이라 birth null. 기본소득 추가선정 근거: https://m.news.nate.com/view/20260611n30503. 대학생 거주비 월 60만원 지원도 있음."
+ },
+ {
+  "sido": "강원",
+  "name": "횡성군",
+  "seat": "횡성읍",
+  "homepage": "https://www.hsg.go.kr",
+  "youth": {
+   "amount": null,
+   "desc": "관외 청년 관내 제조업 취업 시 월 20만원(가족동반 월30만원 추가)",
+   "url": "https://www.servedream.com/service/426100000003",
+   "year": 2026
+  },
+  "farm": null,
+  "housing": {
+   "amount": null,
+   "desc": "농촌주택개량 융자 최대 2억원(연 2%)",
+   "url": "https://www.hsg.go.kr/www/contents.do?key=933",
+   "year": 2026
+  },
+  "birth": {
+   "first": 1000000,
+   "third": 10800000,
+   "url": "https://lifewithbaby.co.kr/money/114/1",
+   "year": 2026
+  },
+  "transfer": {
+   "amount": null,
+   "desc": "전입가구 상수도요금 6개월간 50% 감면",
+   "url": "https://www.hsg.go.kr/www/contents.do?key=933",
+   "year": 2026
+  },
+  "highlight": "KTX 횡성·둔내역, 서울까지 약 1시간",
+  "notes": "횡성형 청년일자리 지원기간 미확인이라 amount null. 귀농 지원금 상세 페이지에 금액 없음. 출산: 셋째 1,080만원(만0~5세 분할), 산후관리비 200만원 별도."
+ }
+]
